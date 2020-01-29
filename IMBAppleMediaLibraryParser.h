@@ -8,6 +8,7 @@
 
 #import <MediaLibrary/MediaLibrary.h>
 #import <iMedia/iMedia.h>
+#import <Photos/Photos.h>
 
 #import "IMBParser.h"
 
@@ -140,7 +141,7 @@ extern NSString *kIMBMLMediaGroupTypeFacesFolder;
 /**
  Base class for parser classes that access their libraries through Apple's MediaLibrary framework. May be used as is. Must be configured through delegate.
  */
-@interface IMBAppleMediaLibraryParser : IMBParser
+@interface IMBAppleMediaLibraryParser : IMBParser<PHPhotoLibraryChangeObserver>
 {
     MLMediaLibrary *_AppleMediaLibrary;
     MLMediaSource *_AppleMediaSource;

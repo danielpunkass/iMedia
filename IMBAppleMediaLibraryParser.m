@@ -47,6 +47,15 @@ NSString *kIMBMLMediaGroupTypeFacesFolder = @"FacesFolder";
 
 @end
 
+// Only available on 10.13 or later
+API_AVAILABLE(macos(10.13))
+@interface IMBAppleMediaLibraryParser ()
+
+@property (nonatomic, strong) PHFetchResult<PHAsset *> *allPhotosFetchResult;
+@property (nonatomic, strong) PHFetchResult<PHAssetCollection *> *smartAlbumsFetchResult;
+@property (nonatomic, strong) PHFetchResult<PHCollection *> *userAlbumsFetchResult;
+
+@end
 
 @implementation IMBAppleMediaLibraryParser
 
@@ -101,18 +110,41 @@ NSString *kIMBMLMediaGroupTypeFacesFolder = @"FacesFolder";
  */
 - (instancetype)initializeMediaLibrary
 {
-    START_MEASURE(4);
-    NSDictionary *libraryOptions = @{MLMediaLoadIncludeSourcesKey : [NSArray arrayWithObject:[self.configuration mediaSourceIdentifier]]};
-    self.AppleMediaLibrary = [[MLMediaLibrary alloc] initWithOptions:libraryOptions];
-    STOP_MEASURE(4);
-    LOG_MEASURED_TIME(4, @"create library object for %@", [self.configuration mediaSourceIdentifier]);
-    
-    START_MEASURE(5);
-    NSDictionary *mediaSources = [IMBAppleMediaLibraryPropertySynchronizer mediaSourcesForMediaLibrary:self.AppleMediaLibrary];
-    self.AppleMediaSource = mediaSources[[self.configuration mediaSourceIdentifier]];
-    STOP_MEASURE(5);
-    LOG_MEASURED_TIME(5, @"create media source for %@", [self.configuration mediaSourceIdentifier]);
-    return self;
+#warning hack test to see what it would be like to use PhotoKit instead
+#warning do we need availability observer too?
+	if (@available(macOS 10.13, *)) {
+		[[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+
+		PHFetchOptions *allPhotosOptions = [[PHFetchOptions alloc] init];
+		allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+		if (@available(macOS 10.15, *)) {
+			self.allPhotosFetchResult = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
+
+			self.smartAlbumsFetchResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+
+			self.userAlbumsFetchResult = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
+		} else {
+#warning can/should we bother with 10.13/14 support for Photos framework?
+		}
+	} else {
+		START_MEASURE(4);
+		NSDictionary *libraryOptions = @{MLMediaLoadIncludeSourcesKey : [NSArray arrayWithObject:[self.configuration mediaSourceIdentifier]]};
+		self.AppleMediaLibrary = [[MLMediaLibrary alloc] initWithOptions:libraryOptions];
+		STOP_MEASURE(4);
+		LOG_MEASURED_TIME(4, @"create library object for %@", [self.configuration mediaSourceIdentifier]);
+
+		START_MEASURE(5);
+		NSDictionary *mediaSources = [IMBAppleMediaLibraryPropertySynchronizer mediaSourcesForMediaLibrary:self.AppleMediaLibrary];
+		self.AppleMediaSource = mediaSources[[self.configuration mediaSourceIdentifier]];
+		STOP_MEASURE(5);
+		LOG_MEASURED_TIME(5, @"create media source for %@", [self.configuration mediaSourceIdentifier]);
+		return self;
+	}
+}
+
+- (void)photoLibraryDidChange:(PHChange *)changeInstance
+API_AVAILABLE(macos(10.13)){
+	NSLog(@"Got photo library change %@", changeInstance);
 }
 
 #pragma mark - Mandatory overrides from superclass
