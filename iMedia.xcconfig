@@ -2,7 +2,7 @@
 
 SDKROOT = macosx
 VALID_ARCHS = x86_64
-MACOSX_DEPLOYMENT_TARGET = 10.6
+MACOSX_DEPLOYMENT_TARGET = 10.12
 
 // Precompiled header & defines
 
