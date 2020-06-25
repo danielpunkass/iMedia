@@ -19,7 +19,7 @@
 	NSString* key = [inEvent charactersIgnoringModifiers];
 	NSUInteger modifiers = [inEvent modifierFlags];
 
-	if (([key isEqual:@"y"] && (modifiers&NSCommandKeyMask)!=0) || [key isEqualToString:@" "])
+	if (([key isEqual:@"y"] && (modifiers & NSEventModifierFlagCommand)!=0) || [key isEqualToString:@" "])
 	{
 		[controller quicklook:self];
 	}
@@ -57,7 +57,7 @@
 // as expected for control clicks.
 - (void) mouseDown:(NSEvent *)inEvent
 {
-	if ((inEvent.type == NSRightMouseDown) || (inEvent.modifierFlags & NSControlKeyMask))
+	if ((inEvent.type == NSEventTypeRightMouseDown) || (inEvent.modifierFlags & NSEventModifierFlagControl))
 	{
 		[super rightMouseDown:inEvent];
 	}

@@ -293,17 +293,17 @@
 	NSRect badgeRect = [self badgeRectForBounds:inCellFrame flipped:isFlipped];
 	BOOL inside = NO;
 	
-    while ([inEvent type] != NSLeftMouseUp)
+	while ([inEvent type] != NSEventTypeLeftMouseUp)
 	{
         NSPoint point = [inControlView convertPoint:[inEvent locationInWindow] fromView:nil];
         inside = NSMouseInRect(point,badgeRect,isFlipped);
 
-        if ([inEvent type] == NSMouseEntered || [inEvent type] == NSMouseExited)
+		if ([inEvent type] == NSEventTypeMouseEntered || [inEvent type] == NSEventTypeMouseExited)
 		{
             [NSApp sendEvent:inEvent];
         }
 
-        inEvent = [[inControlView window] nextEventMatchingMask:(NSEventMaskLeftMouseUp | NSLeftMouseDraggedMask | NSMouseEnteredMask | NSMouseExitedMask)];
+		inEvent = [[inControlView window] nextEventMatchingMask:(NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskMouseEntered | NSEventMaskMouseExited)];
     }
  
     if (inside)

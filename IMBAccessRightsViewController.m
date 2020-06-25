@@ -465,7 +465,7 @@ typedef void (^IMBOpenPanelCompletionHandler)(NSURL* inURL);
 				
 			NSInteger button = [alert runModal];
 			
-			if (button == NSOKButton)
+			if (button == NSModalResponseOK)
 			{
 				[[IMBLibraryController sharedLibraryControllerWithMediaType:inNode.mediaType] reload];
 			}
@@ -612,7 +612,7 @@ typedef void (^IMBOpenPanelCompletionHandler)(NSURL* inURL);
 				
 			NSInteger button = [alert runModal];
 			
-			if (button == NSOKButton)
+			if (button == NSModalResponseOK)
 			{
 				[[IMBLibraryController sharedLibraryControllerWithMediaType:inObject.mediaType] reload];
 			}

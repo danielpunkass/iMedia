@@ -2195,7 +2195,7 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 		[view keyDown:inEvent];
 		return YES;
 	}
-	else if ([inEvent type] == NSKeyUp)
+	else if ([inEvent type] == NSEventTypeKeyUp)
 	{
 		[view keyUp:inEvent];
 		return YES;
