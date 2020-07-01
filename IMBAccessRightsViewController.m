@@ -376,29 +376,15 @@ typedef void (^IMBOpenPanelCompletionHandler)(NSURL* inURL);
 
 		NSString* message = [NSString stringWithFormat:format,name];
 		
-		if (IMBRunningOnLionOrNewer() && inView.window != nil)
+		IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
+		alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
+
+		[alert addButtonWithTitle:ok block:^()
 		{
-			IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
-			alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
-			
-			[alert addButtonWithTitle:ok block:^()
-			{
-				[alert close];
-			}];
-		
-			[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
-		}
-		else
-		{
-			NSAlert* alert = [NSAlert
-				alertWithMessageText:title
-				defaultButton:ok
-				alternateButton:nil
-				otherButton:nil
-				informativeTextWithFormat:@"%@",message];
-				
-			[alert runModal];
-		}
+			[alert close];
+		}];
+
+		[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
 	}
 	
 	// For libraries on an unmounted volume, ask the user to mount the volume and reload...
@@ -426,52 +412,19 @@ typedef void (^IMBOpenPanelCompletionHandler)(NSURL* inURL);
 			@"Reload",
 			@"Alert button");
 
-//		NSString* cancel = NSLocalizedStringWithDefaultValue(
-//			@"IMBAccessRightsViewController.cancel",
-//			nil,
-//			IMBBundle(),
-//			@"Cancel",
-//			@"Alert button");
-
 		NSString* message = [NSString stringWithFormat:format,name,volume];
 		
-		if (IMBRunningOnLionOrNewer() && inView.window != nil)
-		{
-			IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
-			alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
-//+			alert.behavior = NSPopoverBehaviorApplicationDefined;
-			
-//			[alert addButtonWithTitle:cancel block:^()
-//			{
-//				[alert close];
-//			}];
+		IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
+		alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
 
-			[alert addButtonWithTitle:ok block:^()
-			{
-				[[IMBLibraryController sharedLibraryControllerWithMediaType:inNode.mediaType] reload];
-				[alert close];
-			}];
-		
-			[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
-		}
-		else
+		[alert addButtonWithTitle:ok block:^()
 		{
-			NSAlert* alert = [NSAlert
-				alertWithMessageText:title
-				defaultButton:ok
-				alternateButton:nil
-				otherButton:nil
-				informativeTextWithFormat:@"%@",message];
-				
-			NSInteger button = [alert runModal];
-			
-			if (button == NSModalResponseOK)
-			{
-				[[IMBLibraryController sharedLibraryControllerWithMediaType:inNode.mediaType] reload];
-			}
-		}
+			[[IMBLibraryController sharedLibraryControllerWithMediaType:inNode.mediaType] reload];
+			[alert close];
+		}];
+
+		[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
 	}
-	
 }
 
 
@@ -523,29 +476,15 @@ typedef void (^IMBOpenPanelCompletionHandler)(NSURL* inURL);
             message = [NSString stringWithFormat:format,name];
         }
 		
-		if (IMBRunningOnLionOrNewer() && inView.window != nil)
+		IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
+		alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
+
+		[alert addButtonWithTitle:ok block:^()
 		{
-			IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
-			alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
-		
-			[alert addButtonWithTitle:ok block:^()
-			{
-				[alert close];
-			}];
-		
-			[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
-		}
-		else
-		{
-			NSAlert* alert = [NSAlert
-				alertWithMessageText:title
-				defaultButton:ok
-				alternateButton:nil
-				otherButton:nil
-				informativeTextWithFormat:@"%@",message];
-				
-			[alert runModal];
-		}
+			[alert close];
+		}];
+
+		[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
 	}
 
 	// For objects on an unmounted volume, ask the user to mount the volume and reload...
@@ -573,50 +512,18 @@ typedef void (^IMBOpenPanelCompletionHandler)(NSURL* inURL);
 			@"Reload",
 			@"Alert button");
 
-//		NSString* cancel = NSLocalizedStringWithDefaultValue(
-//			@"IMBAccessRightsViewController.cancel",
-//			nil,
-//			IMBBundle(),
-//			@"Cancel",
-//			@"Alert button");
-
 		NSString* message = [NSString stringWithFormat:format,name,volume];
 		
-		if (IMBRunningOnLionOrNewer() && inView.window != nil)
-		{
-			IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
-			alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
-//			alert.behavior = NSPopoverBehaviorApplicationDefined;
-		
-//			[alert addButtonWithTitle:cancel block:^()
-//			{
-//				[alert close];
-//			}];
+		IMBAlertPopover* alert = [IMBAlertPopover warningPopoverWithHeader:title body:message footer:nil];
+		alert.icon = [NSImage imb_imageNamed:@"IMBStopIcon.icns"];
 
-			[alert addButtonWithTitle:ok block:^()
-			{
-				[[IMBLibraryController sharedLibraryControllerWithMediaType:inObject.mediaType] reload];
-				[alert close];
-			}];
-		
-			[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
-		}
-		else
+		[alert addButtonWithTitle:ok block:^()
 		{
-			NSAlert* alert = [NSAlert
-				alertWithMessageText:title
-				defaultButton:ok
-				alternateButton:nil
-				otherButton:nil
-				informativeTextWithFormat:@"%@",message];
-				
-			NSInteger button = [alert runModal];
-			
-			if (button == NSModalResponseOK)
-			{
-				[[IMBLibraryController sharedLibraryControllerWithMediaType:inObject.mediaType] reload];
-			}
-		}
+			[[IMBLibraryController sharedLibraryControllerWithMediaType:inObject.mediaType] reload];
+			[alert close];
+		}];
+
+		[alert showRelativeToRect:inRect ofView:inView preferredEdge:NSMaxYEdge];
 	}
 }
 
