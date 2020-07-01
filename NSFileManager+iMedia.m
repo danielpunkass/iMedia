@@ -84,15 +84,6 @@
 	return [self fileExistsAtPath:path];
 }
 
-- (BOOL)imb_isPathHidden:(NSString *)path
-{
-	LSItemInfoRecord	itemInfo;
-	NSURL*				pathURL = [NSURL fileURLWithPath:path];
-	
-	return ((LSCopyItemInfoForURL((CFURLRef)pathURL, kLSRequestBasicFlagsOnly, &itemInfo) == noErr) &&
-			(itemInfo.flags & kLSItemInfoIsInvisible));
-}
-
 // Return (creating if necessary) a path to the shared iMedia temporary directory.
 // If you pass in a subfolder name, that will be created and appended.
 
