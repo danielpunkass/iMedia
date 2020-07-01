@@ -418,8 +418,6 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	}
 	
 	// Set accessibilility description for each segment...
-	
-	NSArray* segmentChildren = [NSAccessibilityUnignoredDescendant(ibSegments) accessibilityAttributeValue: NSAccessibilityChildrenAttribute];
 
 	for (NSInteger i=0; i<n; i++)
 	{
@@ -456,8 +454,8 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 				axDesc = @"";
 				break;
 		}
-		
-		[[segmentChildren objectAtIndex:i] accessibilitySetOverrideValue:axDesc forAttribute:NSAccessibilityDescriptionAttribute];
+
+		[[ibSegments imageForSegment:i] setAccessibilityDescription:axDesc];
 	}
 	
 	// Observe changes to object array...
