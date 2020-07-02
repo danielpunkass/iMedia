@@ -121,9 +121,10 @@
 		NSURLRequestCachePolicy policy = NSURLRequestUseProtocolCachePolicy;
 		NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:self.remoteURL cachePolicy:policy timeoutInterval:15.0];
 		[request setHTTPMethod:@"HEAD"];
-		
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 		self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
-				
+#pragma clang diagnostic pop
 		do 
 		{
 			CFRunLoopRunInMode(kCFRunLoopDefaultMode,1.0,false);

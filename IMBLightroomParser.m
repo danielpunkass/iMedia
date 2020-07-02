@@ -1439,10 +1439,10 @@ static NSArray* sSupportedImageUTIs = nil;
 {
 	IMBLightroomObject* lightroomObject = (IMBLightroomObject*)inObject;
 	NSString* absolutePyramidPath = [lightroomObject absolutePyramidPath];
-
+	NSURL* absolutePyramidURL = absolutePyramidPath ? [NSURL fileURLWithPath:absolutePyramidPath] : nil;
 	__block NSData* jpegData = nil;
 	
-	if (absolutePyramidPath != nil) {
+	if (absolutePyramidURL != nil) {
 		[self inThumbnailDatabase:^(FMDatabase *thumbnailDatabase) {
 			if (thumbnailDatabase == nil) {
 				return;
@@ -1480,9 +1480,10 @@ static NSArray* sSupportedImageUTIs = nil;
 				double dataOffset = [results doubleForColumn:@"dataOffset"];
 				double dataLength = [results doubleForColumn:@"dataLength"];
 
-				NSData* data = [NSData dataWithContentsOfMappedFile:absolutePyramidPath];
-
-				jpegData = [data subdataWithRange:NSMakeRange(dataOffset, dataLength)];
+				NSData* data = [NSData dataWithContentsOfURL:absolutePyramidURL options:NSDataReadingMappedIfSafe error:nil];
+				if (data != nil) {
+					jpegData = [data subdataWithRange:NSMakeRange(dataOffset, dataLength)];
+				}
 			}
 
 			[results close];
