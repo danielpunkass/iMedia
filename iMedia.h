@@ -54,7 +54,6 @@
 
 // Controllers...
 
-#import <iMedia/IMBPanelController.h>
 #import <iMedia/IMBParserController.h>
 #import <iMedia/IMBLibraryController.h>
 #import <iMedia/IMBNodeViewController.h>

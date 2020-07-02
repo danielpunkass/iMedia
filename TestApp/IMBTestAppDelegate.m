@@ -66,7 +66,7 @@
 #import "IMBAccessRightsController.h"
 #import "IMBTableViewAppearance.h"
 #import "IMBComboTableViewAppearance.h"
-
+#import "IMBPanelController.h"
 
 //----------------------------------------------------------------------------------------------------------------------
 
