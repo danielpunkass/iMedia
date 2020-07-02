@@ -78,6 +78,8 @@
 #import "IMBComboTableView.h"
 #import "IMBComboTextCell.h"
 #import "IMBObjectCollectionView.h"
+#import "IMBObjectCollectionViewItem.h"
+#import "IMBObjectCollectionViewIndexPathTransformer.h"
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -464,12 +466,13 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	[ibObjectArrayController addObserver:self forKeyPath:kArrangedObjectsKey options:0 context:(void*)kArrangedObjectsKey];
 	[ibObjectArrayController addObserver:self forKeyPath:kImageRepresentationKeyPath options:NSKeyValueObservingOptionNew context:(void*)kImageRepresentationKeyPath];
 
-	// For tooltip display, we pay attention to changes in the icon view's scroller clip view, because 
-	// that will naturally indicate a change in visible items (unfortunately IKImageBrowserView's 
-	// visibleItemIndexes attribute doesn't seem to be KVO compatible.
-
-	NSScrollView* iconViewScroller = [ibIconView enclosingScrollView];
-	NSClipView* clipView = [iconViewScroller contentView];
+	// Bind selectionIndexPaths instead of selectionIndexes.
+	// This works around an issue where the icon view scrolls to the top upon clicking an item to select it
+	[ibIconView unbind:NSSelectionIndexesBinding];
+	[ibIconView bind:NSSelectionIndexPathsBinding
+			toObject:ibObjectArrayController
+		 withKeyPath:@"selectionIndexes"
+			 options:@{ NSValueTransformerBindingOption : [[IMBObjectCollectionViewIndexPathTransformer new] autorelease] }];
 
 	// We need to save preferences before the app quits...
 	
@@ -496,7 +499,9 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
      name:kIMBObjectBadgesDidChangeNotification
      object:nil];
 	
-    
+	// Set up icon view to call up table view for "type select" key handling
+	ibIconView.typeSelectTableView = ibListView;
+
 	// After all has been said and done delegate may do additional setup on selected (sub)views
 	
 	if ([self.delegate respondsToSelector:@selector(objectViewController:didLoadViews:)])
@@ -529,7 +534,8 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 
     [ibIconView setDataSource:nil];
 	[ibIconView setDelegate:nil];
-	
+	[ibIconView unbind:NSSelectionIndexPathsBinding];
+
 	[ibListView setDataSource:nil];
     [ibListView setDelegate:nil];
 	
@@ -719,6 +725,8 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	
 	// Configure NSCollectionView to support dragging to other apps
 	[ibIconView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
+
+	[viewItemNib release];
 }
 
 
@@ -777,6 +785,24 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	}
 	
 	return rect;
+}
+
+- (BOOL) tableView:(NSTableView*)inTableView canDragRowsWithIndexes:(NSIndexSet *)rowIndexes
+{
+	NSArray* objects = [ibObjectArrayController arrangedObjects];
+
+	NSUInteger index = [rowIndexes firstIndex];
+
+	while (index != NSNotFound)
+	{
+		IMBObject* object = [objects objectAtIndex:index];
+		if ( !(object.isSelectable && object.isDraggable)) {
+			return NO;
+		}
+		index = [rowIndexes indexGreaterThanIndex:index];
+	}
+
+	return YES;
 }
 
 
@@ -1060,12 +1086,10 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSCollectionViewItem* thisItem = [collectionView makeItemWithIdentifier:@"IMBObjectCollectionViewItem" forIndexPath:indexPath];
+	IMBObjectCollectionViewItem* thisItem = [collectionView makeItemWithIdentifier:@"IMBObjectCollectionViewItem" forIndexPath:indexPath];
 	IMBObject* representedObject = [collectionView.content objectAtIndex:indexPath.item];
 	if (representedObject != nil)
 	{
-		thisItem.selected = NO;
-
 		// Seems we have to call imageRepresentation first to get the thumbnail loaded, then
 		// thumbnail returns it in NSImage format.
 		(void) [representedObject imageRepresentation];
@@ -1076,6 +1100,15 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 
 		// Associate the tooltip with the container view
 		thisItem.view.toolTip = representedObject.tooltipString;
+
+		NSImage* badge = nil;
+
+		if ([self.delegate respondsToSelector:@selector(objectViewController:badgeForObject:)])
+		{
+			badge = [self.delegate objectViewController:self badgeForObject:representedObject];
+		}
+
+		thisItem.badgeImageView.image = badge;
 	}
 	return thisItem;
 }
@@ -1084,6 +1117,45 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 {
 	// We only support one section for now, so we map the indexPath to an index set
 	return [self pasteboardItemForDraggingObjectAtIndex:[indexPath indexAtPosition:1]];
+}
+
+- (void)collectionView:(NSCollectionView *)collectionView draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint forItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths
+{
+	//	Prevent item from being hidden (creating a hole in the grid) while being dragged
+	for (NSIndexPath *indexPath in indexPaths) {
+		[[[collectionView itemAtIndexPath:indexPath] view] setHidden:NO];
+	}
+
+	session.animatesToStartingPositionsOnCancelOrFail = YES;
+	session.draggingFormation = NSDraggingFormationDefault;
+
+	// Provide the IMBObjects to a static variable of Pasteboard, which is the fast path shortcut for
+	// intra application drags. These objects are released again in draggingSession:endedAtPoint:operation:
+	// of our object views...
+
+	NSMutableIndexSet *rowIndexes = [NSMutableIndexSet indexSet];
+
+	for (NSIndexPath *indexPath in indexPaths) {
+		[rowIndexes addIndex:indexPath.item];
+	}
+
+	NSIndexSet *indexes = [self filteredDraggingIndexes:rowIndexes];
+	NSArray<IMBObject *> *draggedObjects = [[ibObjectArrayController arrangedObjects] objectsAtIndexes:indexes];
+	IMBParserMessenger *parserMessenger = draggedObjects.lastObject.parserMessenger;
+
+	[NSPasteboard imb_setIMBObjects:draggedObjects];
+	[NSPasteboard imb_setParserMessenger:parserMessenger];
+
+//	[session enumerateDraggingItemsWithOptions:0 forView:self.view classes:[NSArray arrayWithObject:[NSURL class]] searchOptions:@{} usingBlock:^(NSDraggingItem * _Nonnull draggingItem, NSInteger idx, BOOL * _Nonnull stop) {
+//		// Not sure whether we could do some useful stuff here. Maybe, adjust starting frame of
+//		// dragging item in case of a single item drag? (It may currently be a little off the cursor position)
+//		//NSLog(@"Hello, world!");
+//	}];
+}
+
+- (void)collectionView:(NSCollectionView *)collectionView draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint dragOperation:(NSDragOperation)operation
+{
+	[NSPasteboard imb_setIMBObjects:nil];
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -1136,10 +1208,11 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 // Disable selection of certain items
 - (NSSet<NSIndexPath *> *) selectableItemsInCollectionView:(NSCollectionView *)collectionView atIndexPaths:(NSSet<NSIndexPath *> *)indexPaths
 {
-	NSMutableSet* filteredIndexPaths = [indexPaths mutableCopy];
+	NSMutableSet* filteredIndexPaths = [[indexPaths mutableCopy] autorelease];
 	for (NSIndexPath* thisIndexPath in indexPaths)
 	{
-		IMBObject* thisObject = (IMBObject*)[[collectionView itemAtIndexPath:thisIndexPath] representedObject];
+		IMBObject* thisObject = (IMBObject*)[collectionView.content objectAtIndex:thisIndexPath.item];
+
 		if ([thisObject isSelectable] == NO)
 		{
 			[filteredIndexPaths removeObject:thisIndexPath];
@@ -1161,6 +1234,22 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	// user goes to double-click on a folder item, which is not selectable, it will deselect
 	// whatever was previously selected before passing along the double-click message to the client.
 	return indexPaths;
+}
+
+- (BOOL)collectionView:(NSCollectionView *)collectionView canDragItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths withEvent:(NSEvent *)event
+{
+	NSArray* objects = [ibObjectArrayController arrangedObjects];
+
+	for (NSIndexPath* indexPath in indexPaths) {
+		NSUInteger index = [indexPath item];
+		IMBObject* object = [objects objectAtIndex:index];
+
+		if (! (object.isSelectable && object.isDraggable)) {
+			return NO;
+		}
+	}
+
+	return YES;
 }
 
 #pragma mark
@@ -1365,11 +1454,16 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
     [NSPasteboard imb_setIMBObjects:draggedObjects];
     [NSPasteboard imb_setParserMessenger:parserMessenger];
     
-    [session enumerateDraggingItemsWithOptions:0 forView:self.view classes:[NSArray arrayWithObject:[NSURL class]] searchOptions:@{} usingBlock:^(NSDraggingItem * _Nonnull draggingItem, NSInteger idx, BOOL * _Nonnull stop) {
-        // Not sure whether we could do some useful stuff here. Maybe, adjust starting frame of
-        // dragging item in case of a single item drag? (It may currently be a little off the cursor position)
-        //NSLog(@"Hello, world!");
-    }];
+//    [session enumerateDraggingItemsWithOptions:0 forView:self.view classes:[NSArray arrayWithObject:[NSURL class]] searchOptions:@{} usingBlock:^(NSDraggingItem * _Nonnull draggingItem, NSInteger idx, BOOL * _Nonnull stop) {
+//        // Not sure whether we could do some useful stuff here. Maybe, adjust starting frame of
+//        // dragging item in case of a single item drag? (It may currently be a little off the cursor position)
+//        //NSLog(@"Hello, world!");
+//    }];
+}
+
+- (void)tableView:(NSTableView *)tableView draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
+{
+	[NSPasteboard imb_setIMBObjects:nil];
 }
 
 /**
@@ -2002,7 +2096,7 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	{
 		IMBObject* object = [objects objectAtIndex:index];
 		if (object.isSelectable && (object.accessibility == kIMBResourceIsAccessible ||
-                                    object.accessibility == kIMBResourceIsAccessibleSecurityScoped)) {
+									object.accessibility == kIMBResourceIsAccessibleSecurityScoped)) {
             [indexes addIndex:index];
         }
 		index = [inIndexes indexGreaterThanIndex:index];
@@ -2020,7 +2114,8 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 		IMBObject* object = [allObjects objectAtIndex:inIndex];
 
 		// We don't allow non-selectable objects to be dragged either
-		if ([object isSelectable])
+		if (object.isSelectable && (object.accessibility == kIMBResourceIsAccessible ||
+									object.accessibility == kIMBResourceIsAccessibleSecurityScoped))
 		{
 			pasteboardItem = [[NSPasteboardItem alloc] init];
 			[pasteboardItem setDataProvider:object forTypes:[self draggingTypesForWritingToPasteboard]];

@@ -193,6 +193,10 @@
 		8F76F8621770D259007B56FC /* IMBLightroom5VideoParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F76F8601770D259007B56FC /* IMBLightroom5VideoParser.h */; };
 		8F76F8631770D259007B56FC /* IMBLightroom5VideoParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F76F8611770D259007B56FC /* IMBLightroom5VideoParser.m */; };
 		8F93177E10A9FC53002CDB19 /* IMBPyramidObjectPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F93177C10A9FC53002CDB19 /* IMBPyramidObjectPromise.h */; };
+		8FBCE5A323E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FBCE59C23E82CD70027C2AD /* IMBObjectCollectionViewIndexPathTransformer.h */; };
+		8FBCE5A423E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBCE5A223E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.m */; };
+		8FC1040A23E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FC1040823E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.h */; };
+		8FC1040B23E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1040923E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.m */; };
 		8FC15E4C176A99EB007FF34F /* IMBLightroom5Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FC15E4A176A99EB007FF34F /* IMBLightroom5Parser.h */; };
 		8FC15E4D176A99EB007FF34F /* IMBLightroom5Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC15E4B176A99EB007FF34F /* IMBLightroom5Parser.m */; };
 		8FC2089D11C29E1C0083EAB3 /* IMBLightroom3VideoParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FC2089B11C29E1C0083EAB3 /* IMBLightroom3VideoParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1061,6 +1065,10 @@
 		8F76F8611770D259007B56FC /* IMBLightroom5VideoParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBLightroom5VideoParser.m; sourceTree = "<group>"; };
 		8F93177C10A9FC53002CDB19 /* IMBPyramidObjectPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBPyramidObjectPromise.h; sourceTree = "<group>"; };
 		8F93177D10A9FC53002CDB19 /* IMBPyramidObjectPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBPyramidObjectPromise.m; sourceTree = "<group>"; };
+		8FBCE59C23E82CD70027C2AD /* IMBObjectCollectionViewIndexPathTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBObjectCollectionViewIndexPathTransformer.h; sourceTree = "<group>"; };
+		8FBCE5A223E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBObjectCollectionViewIndexPathTransformer.m; sourceTree = "<group>"; };
+		8FC1040823E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMBObjectCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		8FC1040923E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMBObjectCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		8FC15E4A176A99EB007FF34F /* IMBLightroom5Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBLightroom5Parser.h; sourceTree = "<group>"; };
 		8FC15E4B176A99EB007FF34F /* IMBLightroom5Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBLightroom5Parser.m; sourceTree = "<group>"; };
 		8FC2089B11C29E1C0083EAB3 /* IMBLightroom3VideoParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBLightroom3VideoParser.h; sourceTree = "<group>"; };
@@ -2270,6 +2278,10 @@
 				D08C5C9D104862540068FF07 /* IMBTextFieldCell.m */,
 				657C066322133E7000A2DB7F /* IMBObjectCollectionView.h */,
 				657C066422133E7100A2DB7F /* IMBObjectCollectionView.m */,
+				8FC1040823E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.h */,
+				8FC1040923E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.m */,
+				8FBCE59C23E82CD70027C2AD /* IMBObjectCollectionViewIndexPathTransformer.h */,
+				8FBCE5A223E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.m */,
 				65E4AF2D2211B4A4000B9BD9 /* IMBObjectCollectionViewItem.h */,
 				65E4AF2E2211B4A4000B9BD9 /* IMBObjectCollectionViewItem.m */,
 				65E4AF292211B424000B9BD9 /* IMBImageSelectionView.h */,
@@ -2653,6 +2665,7 @@
 				8FFCBFD010A8CD9C00377C33 /* IMBLightroom3Parser.h in Headers */,
 				8F93177E10A9FC53002CDB19 /* IMBPyramidObjectPromise.h in Headers */,
 				8F47B39110C416050013ED25 /* IMBOrderedDictionary.h in Headers */,
+				8FBCE5A323E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.h in Headers */,
 				D0AD4C9F10CCF36F00204318 /* IMBButtonObject.h in Headers */,
 				D0467BB0112C220F00C1AA4E /* IMBApertureAudioParser.h in Headers */,
 				D0467BB4112C223600C1AA4E /* IMBApertureVideoParser.h in Headers */,
@@ -2719,6 +2732,7 @@
 				D006CFF81534084C00C53C23 /* IMBLightroomModernParser.h in Headers */,
 				30FD64471545833A0036BDE2 /* IMBApertureParserMessenger.h in Headers */,
 				30FD64661546AF6E0036BDE2 /* NSPasteboard+iMedia.h in Headers */,
+				8FC1040A23E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.h in Headers */,
 				D052EB881558F64300D16C55 /* IMBFolderParser.h in Headers */,
 				D052EB891558F64300D16C55 /* IMBImageFolderParser.h in Headers */,
 				301C61F21AAF0FAA00A0E15F /* IMBiPhotoParserConfiguration.h in Headers */,
@@ -3588,6 +3602,7 @@
 				D0B3137C151CA594003CB231 /* IMBAppleMediaParser.m in Sources */,
 				30DA32431A8E29680039B07C /* IMBAppleMediaLibraryPropertySynchronizer.m in Sources */,
 				D0C911C11520CFF3006655C9 /* IMBNodeViewController.m in Sources */,
+				8FC1040B23E6BA61000F063E /* IMBObjectCollectionViewFlowLayout.m in Sources */,
 				D0C911C21520D00A006655C9 /* IMBButtonObject.m in Sources */,
 				D0C911C31520D016006655C9 /* IMBNodeCell.m in Sources */,
 				D0C911C41520D3D2006655C9 /* IMBPanel.m in Sources */,
@@ -3670,6 +3685,7 @@
 				3000ADFA16159C2300EDC78E /* NSCell+iMedia.m in Sources */,
 				3000AE021617288200EDC78E /* IMBComboTableViewAppearance.m in Sources */,
 				3000AE201617AE2200EDC78E /* IMBViewAppearance.m in Sources */,
+				8FBCE5A423E82CD80027C2AD /* IMBObjectCollectionViewIndexPathTransformer.m in Sources */,
 				301C61FB1AAF45C200A0E15F /* IMBiTunesParserConfiguration.m in Sources */,
 				3099018F16637B93006C1212 /* NSBundle+iMedia.m in Sources */,
 				65E4AF2C2211B424000B9BD9 /* IMBImageSelectionView.m in Sources */,

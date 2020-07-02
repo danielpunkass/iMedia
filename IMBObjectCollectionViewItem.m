@@ -8,6 +8,13 @@
 #import "IMBObjectCollectionViewItem.h"
 #import "IMBImageSelectionView.h"
 
+@interface IMBObjectCollectionViewItem ()
+
+@property (assign) IBOutlet IMBImageSelectionView* imageSelectionView;
+
+@end
+
+
 @implementation IMBObjectCollectionViewItem
 
 - (void)setSelected:(BOOL)selected

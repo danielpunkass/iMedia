@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.59" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment version="101200" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.59"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,6 +11,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <collectionViewItem id="XZP-Ts-4GS" customClass="IMBObjectCollectionViewItem">
             <connections>
+                <outlet property="badgeImageView" destination="lDZ-qd-i2C" id="pP2-jQ-ErB"/>
                 <outlet property="imageSelectionView" destination="ZdY-Rv-Yei" id="m4g-ns-T3b"/>
                 <outlet property="imageView" destination="hxO-fZ-dyQ" id="7fo-A5-dp4"/>
                 <outlet property="textField" destination="5JN-J1-cAI" id="pQL-Ky-Otc"/>
@@ -29,6 +30,11 @@
                             <rect key="frame" x="6" y="6" width="88" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="oYp-P2-6bx"/>
+                        </imageView>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lDZ-qd-i2C">
+                            <rect key="frame" x="78" y="6" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="OWw-H1-Tas"/>
                         </imageView>
                     </subviews>
                 </customView>

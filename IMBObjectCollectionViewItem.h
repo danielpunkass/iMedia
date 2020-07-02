@@ -9,11 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class IMBImageSelectionView;
-
 @interface IMBObjectCollectionViewItem : NSCollectionViewItem
 
-@property (assign) IBOutlet IMBImageSelectionView* imageSelectionView;
+@property (assign) IBOutlet NSImageView* badgeImageView;
 
 @end
 

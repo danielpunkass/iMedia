@@ -8,7 +8,16 @@
 #import "IMBObjectCollectionView.h"
 #import "IMBObjectViewController.h"
 
+
 @implementation IMBObjectCollectionView
+
+- (void) dealloc
+{
+	IMBRelease(_typeSelectTableView);
+	IMBRelease(_skimmingTrackingArea);
+
+	[super dealloc];
+}
 
 #pragma mark
 #pragma mark Event Handling
@@ -23,10 +32,102 @@
 	{
 		[controller quicklook:self];
 	}
+	else if (([[inEvent characters] length] > 0) && (([inEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == 0)) {
+		return [self typeSelectKeyDown:inEvent];
+	}
 	else
 	{
 		[super keyDown:inEvent];
 	}
+}
+
+- (void)keyUp:(NSEvent *)event
+{
+	NSString *eventCharacters = [event characters];
+
+	if ([eventCharacters length] > 0)
+	{
+		unichar firstChar = [eventCharacters characterAtIndex:0];
+
+		if (firstChar == NSEnterCharacter)
+		{
+			return [self.typeSelectTableView keyUp:event];
+		}
+		else if (([event modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == 0)
+		{
+			return [self.typeSelectTableView keyUp:event];
+		}
+	}
+
+	[super keyUp:event];
+}
+
+- (void)typeSelectKeyDown:(NSEvent *)event
+{
+	NSSet<NSIndexPath *> *oldSlectionIndexPaths = self.selectionIndexPaths;
+
+	[self.typeSelectTableView keyDown:event];
+
+	NSSet<NSIndexPath *> *selectionIndexPaths = self.selectionIndexPaths;
+
+	if (! [oldSlectionIndexPaths isEqual:selectionIndexPaths])
+	{
+		[self scrollToItemsAtIndexPaths:selectionIndexPaths scrollPosition:NSCollectionViewScrollPositionNearestHorizontalEdge|NSCollectionViewScrollPositionNearestVerticalEdge];
+	}
+}
+
+- (void)doCommandBySelector:(SEL)selector
+{
+	if (selector == @selector(scrollPageDown:))
+	{
+		[[self enclosingScrollView] pageDown:self];
+	}
+	else if (selector == @selector(scrollPageUp:))
+	{
+		[[self enclosingScrollView] pageUp:self];
+	}
+	else if (selector == @selector(scrollToEndOfDocument:))
+	{
+		[self scrollToEndOfDocument:self];
+
+	}
+	else if (selector == @selector(scrollToBeginningOfDocument:))
+	{
+		[self scrollToBeginningOfDocument:self];
+	}
+	else {
+		[super doCommandBySelector:selector];
+	}
+}
+
+- (void)scrollToBeginningOfDocument:(id)sender
+{
+	NSPoint newScrollOrigin;
+	NSScrollView *scrollview = self.enclosingScrollView;
+
+	if ([[scrollview documentView] isFlipped]) {
+		newScrollOrigin = NSMakePoint(0.0, 0.0);
+	}
+	else {
+		newScrollOrigin = NSMakePoint(0.0, NSMaxY([[scrollview documentView] frame]) - NSHeight([[scrollview contentView] bounds]));
+	}
+
+	[[scrollview documentView] scrollPoint:newScrollOrigin];
+
+}
+
+- (void)scrollToEndOfDocument:(id)sender
+{
+	NSPoint newScrollOrigin;
+	NSScrollView *scrollview = self.enclosingScrollView;
+
+	if ([[scrollview documentView] isFlipped]) {
+		newScrollOrigin = NSMakePoint(0.0, NSMaxY([[scrollview documentView] frame]) - NSHeight([[scrollview contentView] bounds]));
+	} else {
+		newScrollOrigin = NSMakePoint(0.0, 0.0);
+	}
+
+	[[scrollview documentView] scrollPoint:newScrollOrigin];
 }
 
 - (IMBObject*) itemForMouseEvent:(NSEvent*)mouseEvent
@@ -85,6 +186,22 @@
 	}
 
 	return returnedMenu;
+}
+
+- (void)magnifyWithEvent:(NSEvent *)event
+{
+	IMBObjectViewController* controller = (IMBObjectViewController*) self.delegate;
+
+	if ([controller isKindOfClass:[IMBObjectViewController class]])
+	{
+		CGFloat iconSize = [controller iconSize];
+
+		iconSize	+= [event magnification];
+		iconSize	= MAX(0.0, iconSize);
+		iconSize	= MIN(1.0, iconSize);
+
+		[controller setIconSize:iconSize];
+	}
 }
 
 #pragma mark

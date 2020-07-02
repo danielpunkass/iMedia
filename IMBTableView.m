@@ -379,6 +379,13 @@ enum IMBMouseOperation
     return [self frameOfCellAtColumn:0 row:idx];
 }
 
+- (BOOL)canDragRowsWithIndexes:(NSIndexSet *)rowIndexes atPoint:(NSPoint)mouseDownPoint
+{
+	IMBObjectViewController* controller = (IMBObjectViewController*) self.delegate;
+
+	return [controller tableView:self canDragRowsWithIndexes:rowIndexes];
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 

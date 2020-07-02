@@ -361,7 +361,7 @@
 				CGFloat whiteValue = 0.66667;
 				if (@available(macOS 10.14, *)) {
 					BOOL isDarkMode = [[[NSAppearance currentAppearance] bestMatchFromAppearancesWithNames:@[NSAppearanceNameDarkAqua, NSAppearanceNameAqua]] isEqualToString:@"NSAppearanceNameDarkAqua"];
-					CGFloat whiteValue = isDarkMode ? 1.0 : 0.66667;
+					whiteValue = isDarkMode ? 1.0 : 0.66667;
 				}
 				draggingPromptColor = [NSColor colorWithCalibratedWhite:whiteValue alpha:alpha];
             }
