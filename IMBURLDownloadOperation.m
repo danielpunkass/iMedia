@@ -136,7 +136,10 @@
 		NSURLRequestCachePolicy policy = NSURLRequestUseProtocolCachePolicy;
 		
 		NSURLRequest* request = [NSURLRequest requestWithURL:self.remoteURL cachePolicy:policy timeoutInterval:90.0];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 		NSURLDownload* download = [[NSURLDownload alloc] initWithRequest:request delegate:self];
+#pragma clang diagnostic pop
 		[download setDestination:localFilePath allowOverwrite:NO];
 		[download setDeletesFileUponFailure:YES];
 		
