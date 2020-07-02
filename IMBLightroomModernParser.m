@@ -343,12 +343,13 @@
 	NSData* data = nil;
 
 	if (absolutePyramidPath != nil) {
-		data = [NSData dataWithContentsOfMappedFile:absolutePyramidPath];
+		NSURL* absolutePyramidURL = [NSURL fileURLWithPath:absolutePyramidPath];
+		if (absolutePyramidURL != nil) {
+			data = [NSData dataWithContentsOfURL:absolutePyramidURL options:NSDataReadingMappedIfSafe error:nil];
+		}
 	}
 
 	if (data != nil) {
-		NSData* data = [NSData dataWithContentsOfMappedFile:absolutePyramidPath];
-
 		//		'AgHg'					-- a magic marker
 		//		header length			-- 2 bytes, big endian includes marker and length
 		//		version					-- 1 byte, zero for now
