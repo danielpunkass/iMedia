@@ -107,7 +107,6 @@
 		3091F6BF15C9508E005019A1 /* IMBURLDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = D052AFD010538B7B00988F53 /* IMBURLDownloadOperation.h */; };
 		3091F6C015C9508E005019A1 /* IMBURLDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D052AFD110538B7B00988F53 /* IMBURLDownloadOperation.m */; };
 		3092C3191712F14100E52444 /* IMBFacebookAccessController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3092C3161712F14100E52444 /* IMBFacebookAccessController.h */; };
-		3094F7171715C0980016E810 /* PhFacebook.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3094F7151715C0070016E810 /* PhFacebook.framework */; };
 		3099018E16637B93006C1212 /* NSBundle+iMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3099018C16637B93006C1212 /* NSBundle+iMedia.h */; };
 		3099018F16637B93006C1212 /* NSBundle+iMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 3099018D16637B93006C1212 /* NSBundle+iMedia.m */; };
 		309901941663B2A3006C1212 /* com.red-sweater.im.edia.Aperture.xpc in Copy XPCServices */ = {isa = PBXBuildFile; fileRef = D05D39AC152ACD1300E30C43 /* com.red-sweater.im.edia.Aperture.xpc */; };
@@ -888,7 +887,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3094F7171715C0980016E810 /* PhFacebook.framework in Copy Frameworks */,
 				D0904DDA152D6FBD003FDD08 /* XPCKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -3490,7 +3488,7 @@
 		};
 		D0DD821D180310C700FB655B /* Code Sign 3rd-Party Mach-O */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -3498,9 +3496,9 @@
 			name = "Code Sign 3rd-Party Mach-O";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "# Load the external script\nsource \"${SOURCE_ROOT}/_3rdPartyCodeSign.sh\"\n\n# Setup path attributes\npath_xpcservice=\"${CONFIGURATION_BUILD_DIR}/${XPCSERVICES_FOLDER_PATH}\"\npath_plugins=\"${CONFIGURATION_BUILD_DIR}/${PLUGINS_FOLDER_PATH}\"\npath_frameworks=\"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\npath_resources=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\n\n# Sign Frameworks\n_resign_mach_o_file \"${path_frameworks}/ObjectiveFlickr.framework/Versions/A/ObjectiveFlickr\"\n_resign_mach_o_file \"${path_frameworks}/XPCKit.framework/Versions/A/XPCKit\"\n_resign_mach_o_file \"${path_frameworks}/PhFacebook.framework/Versions/A/PhFacebook\"\n\n# Sign XPC Services\n#_resign_mach_o_file \"${path_xpcservice}/com.andymatuschak.Sparkle.install-service.xpc\"";
+			shellScript = "# Load the external script\nsource \"${SOURCE_ROOT}/_3rdPartyCodeSign.sh\"\n\n# Setup path attributes\npath_xpcservice=\"${CONFIGURATION_BUILD_DIR}/${XPCSERVICES_FOLDER_PATH}\"\npath_plugins=\"${CONFIGURATION_BUILD_DIR}/${PLUGINS_FOLDER_PATH}\"\npath_frameworks=\"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\npath_resources=\"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\n\n# Sign Frameworks\n_resign_mach_o_file \"${path_frameworks}/XPCKit.framework/Versions/A/XPCKit\"\n\n# Sign XPC Services\n#_resign_mach_o_file \"${path_xpcservice}/com.andymatuschak.Sparkle.install-service.xpc\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
