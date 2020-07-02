@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17132.0.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <development version="6300" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132.0.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="IMBPanelController">
@@ -22,25 +22,22 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <window title="Media" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="558" customClass="IMBPanel">
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Media" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="558" customClass="IMBPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="18" y="274" width="408" height="853"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="559">
                 <rect key="frame" x="0.0" y="0.0" width="408" height="853"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tabView type="noTabsNoBorder" id="551">
+                    <tabView fixedFrame="YES" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="551">
                         <rect key="frame" x="0.0" y="0.0" width="408" height="853"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <font key="font" metaFont="system"/>
-                        <tabViewItems/>
                     </tabView>
                 </subviews>
-                <animations/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="764737B7-A66C-47B7-9793-ACC3AB62A0A9" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="560">
                 <allowedToolbarItems>
@@ -57,37 +54,33 @@
                     <outlet property="delegate" destination="-2" id="571"/>
                 </connections>
             </toolbar>
+            <point key="canvasLocation" x="64" y="137"/>
         </window>
         <window title="About iMedia Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="572" userLabel="Info" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="511" y="356" width="310" height="425"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <value key="minSize" type="size" width="213" height="113"/>
             <view key="contentView" id="573">
                 <rect key="frame" x="0.0" y="0.0" width="310" height="425"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="574" customClass="IMBBackgroundImageView">
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="574" customClass="IMBBackgroundImageView">
                         <rect key="frame" x="0.0" y="0.0" width="310" height="441"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="576">
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="576">
                                 <rect key="frame" x="0.0" y="344" width="310" height="5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <animations/>
-                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <font key="titleFont" metaFont="system"/>
                             </box>
-                            <customView id="577">
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="577">
                                 <rect key="frame" x="10" y="346" width="290" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button id="578">
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="578">
                                         <rect key="frame" x="96" y="5" width="189" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <animations/>
                                         <buttonCell key="cell" type="check" title="SMALL SIZE" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="591">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
@@ -96,20 +89,18 @@
                                             <binding destination="-2" name="value" keyPath="toolbarIsSmall" id="606"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" id="580">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="580">
                                         <rect key="frame" x="-3" y="51" width="97" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <animations/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="PHOTO GRIDS:" id="585">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button id="582">
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="582">
                                         <rect key="frame" x="96" y="52" width="189" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <animations/>
                                         <buttonCell key="cell" type="check" title="SHOW TITLES" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="583">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
@@ -118,20 +109,18 @@
                                             <binding destination="-2" name="value" keyPath="prefersFilenamesInPhotoBasedBrowsers" id="604"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" id="581">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="581">
                                         <rect key="frame" x="-3" y="27" width="97" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <animations/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="TOOLBAR:" id="584">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <popUpButton verticalHuggingPriority="750" id="579">
+                                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="579">
                                         <rect key="frame" x="96" y="25" width="177" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <animations/>
                                         <popUpButtonCell key="cell" type="push" title="TEXT ONLY" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="3" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="589" id="586">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
@@ -148,53 +137,42 @@
                                         </connections>
                                     </popUpButton>
                                 </subviews>
-                                <animations/>
                             </customView>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="575">
+                            <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="575">
                                 <rect key="frame" x="0.0" y="0.0" width="310" height="346"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" id="M2Z-JD-VQ6">
+                                <clipView key="contentView" drawsBackground="NO" id="M2Z-JD-VQ6">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="346"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView editable="NO" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" smartInsertDelete="YES" id="595">
+                                        <textView editable="NO" verticallyResizable="YES" usesFontPanel="YES" usesRuler="YES" smartInsertDelete="YES" id="595">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="346"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <animations/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="310" height="346"/>
                                             <size key="maxSize" width="310" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="310" height="346"/>
-                                            <size key="maxSize" width="310" height="10000000"/>
                                         </textView>
                                     </subviews>
-                                    <animations/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
-                                <animations/>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="YES" id="593">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="YES" id="593">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="594">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="594">
                                     <rect key="frame" x="-22" y="0.0" width="11" height="301"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </scroller>
                             </scrollView>
                         </subviews>
-                        <animations/>
                     </customView>
                 </subviews>
-                <animations/>
             </view>
         </window>
         <view id="592">
             <rect key="frame" x="0.0" y="0.0" width="125" height="1"/>
             <autoresizingMask key="autoresizingMask"/>
-            <animations/>
         </view>
     </objects>
 </document>

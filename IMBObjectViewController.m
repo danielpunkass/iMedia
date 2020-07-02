@@ -768,7 +768,10 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 	
 	if ([inTableView isKindOfClass:[IMBComboTableView class]])
 	{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 		IMBComboTextCell* cell = (IMBComboTextCell*)[inTableView preparedCellAtColumn:0 row:inRow];
+#pragma clang diagnostic pop
 		rect = [cell imageRectForBounds:rect];
 		rect = NSInsetRect(rect,inInset,inInset);
 	}

@@ -175,7 +175,10 @@
 
 - (NSRect) badgeRectForRow:(NSInteger)inRow
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 	IMBNodeCell* cell = (IMBNodeCell*)[self preparedCellAtColumn:0 row:inRow];
+#pragma clang diagnostic pop
 
 	// To correctly place the badge rect, we need to account for the table's intercellSpacing.
 	// This can be done either by taking the whole rect of the row and subtracting the pertinent
