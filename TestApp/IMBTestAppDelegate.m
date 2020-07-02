@@ -116,9 +116,7 @@
 	
 	[defaults registerDefaults:defaultDefaults];
 	[controller setInitialValues:defaultDefaults];
-	
-    NSLog(@"Garbage Collection is %@", [NSGarbageCollector defaultCollector] != nil ? @"ON" : @"OFF");
-	
+		
 	[pool release];
 }
 
