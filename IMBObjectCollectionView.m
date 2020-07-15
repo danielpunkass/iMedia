@@ -32,7 +32,7 @@
 	{
 		[controller quicklook:self];
 	}
-	else if (([[inEvent characters] length] > 0) && (([inEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == 0)) {
+	else if (([key isEqualToString:@"\n"] == NO) && ([key isEqualToString:@"\r"] == NO) && ([[inEvent characters] length] > 0) && (([inEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == 0)) {
 		return [self typeSelectKeyDown:inEvent];
 	}
 	else
@@ -95,6 +95,19 @@
 	{
 		[self scrollToBeginningOfDocument:self];
 	}
+	else if (selector == @selector(insertNewline:))
+	{
+		// Currently only works with single selection
+		NSIndexPath* selectedItemIndexPath = self.selectionIndexPaths.anyObject;
+		if (selectedItemIndexPath != nil)
+		{
+			IMBObject* selectedItem = (IMBObject*)[[self itemAtIndex:[selectedItemIndexPath indexAtPosition:1]] representedObject];
+			if (selectedItem != nil)
+			{
+				[self sendDelegateItemOpenedMessage:selectedItem];
+			}
+		}
+	}
 	else {
 		[super doCommandBySelector:selector];
 	}
@@ -142,16 +155,23 @@
 	return itemUnderMouse;
 }
 
+// Currently just reuses the existing wasDoubleClickedItem but we should update
+// the delegate method name to be more general about opening an item and not
+// necessarily about double-clicking per se.
+- (void) sendDelegateItemOpenedMessage:(IMBObject*)openedItem
+{
+	if ([[self delegate] respondsToSelector:@selector(collectionView:wasDoubleClickedOnItem:)])
+	{
+		[(id<IMBObjectCollectionViewDelegate>)[self delegate] collectionView:self wasDoubleClickedOnItem:openedItem];
+	}
+}
+
 // Detect double-clicks ... we accept them from clicks on ourself and from
 // clicks on items, which defer to us.
 - (void) sendDelegateDoubleClickEvent:(NSEvent*)mouseEvent
 {
-	if ([[self delegate] respondsToSelector:@selector(collectionView:wasDoubleClickedOnItem:)])
-	{
-		IMBObject* clickedItem = [self itemForMouseEvent:mouseEvent];
-
-		[(id<IMBObjectCollectionViewDelegate>)[self delegate] collectionView:self wasDoubleClickedOnItem:clickedItem];
-	}
+	IMBObject* clickedItem = [self itemForMouseEvent:mouseEvent];
+	[self sendDelegateItemOpenedMessage:clickedItem];
 }
 
 // Thanks to Charles Parnot for sharing that rightMouseDown doesn't seem to get generated
