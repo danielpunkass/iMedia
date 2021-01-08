@@ -16,10 +16,8 @@ GCC_OPTIMIZATION_LEVEL[config=Debug] = 0
 COPY_PHASE_STRIP[config=Debug][sdk=*] = NO
 SKIP_INSTALL[config=Release][sdk=*] = YES
 
-// Use "Mac App Store" code signing identity for both Debug and Release configurations
-
-CODE_SIGN_IDENTITY_Debug = Mac Developer
-CODE_SIGN_IDENTITY_Release = Mac Developer
+CODE_SIGN_IDENTITY_Debug =
+CODE_SIGN_IDENTITY_Release =
 CODE_SIGN_IDENTITY = $(CODE_SIGN_IDENTITY_$(CONFIGURATION))
 
 // Xcode 7 doesn't require the development team to be set. The setting "None" in the popup menu is just fine
