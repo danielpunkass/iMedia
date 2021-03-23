@@ -289,7 +289,7 @@
 		D052EB891558F64300D16C55 /* IMBImageFolderParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D099328F1011227100C527B7 /* IMBImageFolderParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D052EB8A1558F64300D16C55 /* IMBAudioFolderParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B6FAB91043243800280DDC /* IMBAudioFolderParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D052EB8B1558F64300D16C55 /* IMBMovieFolderParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B6FABD1043246800280DDC /* IMBMovieFolderParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D052EB8C1558F64F00D16C55 /* IMBAppleMediaParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E96C2915122F86004F3EE7 /* IMBAppleMediaParser.h */; };
+		D052EB8C1558F64F00D16C55 /* IMBAppleMediaParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E96C2915122F86004F3EE7 /* IMBAppleMediaParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D054AFEA152984C300EBFA1C /* IMBGarageBandParserMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = D054AFE8152984C300EBFA1C /* IMBGarageBandParserMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D054AFEB152984C300EBFA1C /* IMBGarageBandParserMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = D054AFE9152984C300EBFA1C /* IMBGarageBandParserMessenger.m */; };
 		D054AFF0152984FA00EBFA1C /* SBServiceMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D08109A7151A052300201850 /* SBServiceMain.m */; };
@@ -533,9 +533,6 @@
 		D0E96CE215189FAC004F3EE7 /* IMBFolderParserMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E96CE015189FAC004F3EE7 /* IMBFolderParserMessenger.m */; };
 		D0E96CE61518A297004F3EE7 /* IMBImageFolderParserMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E96CE41518A296004F3EE7 /* IMBImageFolderParserMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0E96CE71518A297004F3EE7 /* IMBImageFolderParserMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E96CE51518A297004F3EE7 /* IMBImageFolderParserMessenger.m */; };
-		D0E96CFA1518C9BF004F3EE7 /* iMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* iMedia.framework */; };
-		D0E96D1C104410BD0015979F /* IMBPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E96D1A104410BD0015979F /* IMBPanelController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D0F207C7150A23BA007E6FA2 /* iMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* iMedia.framework */; };
 		D0F2DB9B1098262D004280C1 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F2DB941098262D004280C1 /* FMDatabase.h */; };
 		D0F2DB9C1098262D004280C1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2DB951098262D004280C1 /* FMDatabase.m */; };
 		D0F2DB9D1098262D004280C1 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F2DB961098262D004280C1 /* FMDatabaseAdditions.h */; };
@@ -550,7 +547,7 @@
 		D0F2DDBE152485130059DF8D /* SBServiceMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D08109A7151A052300201850 /* SBServiceMain.m */; };
 		D0F2DDC3152485130059DF8D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09930FC1010FF9700C527B7 /* Quartz.framework */; };
 		D0F2DDC5152485130059DF8D /* XPCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3089F94A151C8FDD00D56DC0 /* XPCKit.framework */; };
-		D0F2DDCF152486360059DF8D /* im.edia.iTunes.xpc in Copy XPCServices */ = {isa = PBXBuildFile; fileRef = D0F2DDCB152485130059DF8D /* im.edia.iTunes.xpc */; };
+		D0F2DDCF152486360059DF8D /* com.red-sweater.im.edia.iTunes.xpc in Copy XPCServices */ = {isa = PBXBuildFile; fileRef = D0F2DDCB152485130059DF8D /* com.red-sweater.im.edia.iTunes.xpc */; };
 		D0FC9518108213A800973FEE /* IMBiTunesMovieParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0FC9516108213A800973FEE /* IMBiTunesMovieParser.h */; };
 		D0FDC62B1668ACC000181E15 /* iTunes11-icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FDC5EB1668AC7100181E15 /* iTunes11-icon-01.png */; };
 		D0FDC62C1668ACC000181E15 /* iTunes11-icon-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FDC5EC1668AC7200181E15 /* iTunes11-icon-01@2x.png */; };
