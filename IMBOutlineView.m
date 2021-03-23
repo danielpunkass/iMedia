@@ -173,10 +173,10 @@
 			NSString* promptText = NSLocalizedStringWithDefaultValue(
 			 @"IMBOutlineView.draggingPrompt",
 			 nil,IMBBundle(),
-			 @"Drag additional folders here to add them to the media browser.",
+			 @"Drag a folder here to add it to your media list.",
 			 @"String that is displayed in the IMBOutlineView");
 
-			CGFloat fontSize = [NSFont systemFontSizeForControlSize:NSControlSizeSmall];
+			CGFloat fontSize = [NSFont systemFontSizeForControlSize:NSControlSizeRegular];
 			NSFont* promptFont = [NSFont boldSystemFontOfSize:fontSize];
 
 			NSRect draggingPromptFrame = [[self enclosingScrollView] bounds];
