@@ -41,3 +41,4 @@
 - (NSUInteger)indexOfBytes:(const void *)patternBytes length:(NSUInteger)patternLength options:(NSInteger)mask range:(NSRange)searchRange;
 
 @end
+

@@ -91,6 +91,7 @@
 
 #import <iMedia/IMBParser.h>
 #import <iMedia/IMBImageFolderParser.h>
+#import <iMedia/IMBAppleMediaParser.h>
 #import <iMedia/IMBAudioFolderParser.h>
 #import <iMedia/IMBMovieFolderParser.h>
 

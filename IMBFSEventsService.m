@@ -56,8 +56,8 @@
 #pragma mark HEADERS
 
 #import <XPCKit/XPCKit.h>
-#import <iMedia/IMBFileWatcher.h>
-#import <iMedia/IMBFSEventsWatcher.h>
+#import "IMBFileWatcher.h"
+#import "IMBFSEventsWatcher.h"
 #import <iMedia/IMBAccessRightsController.h>
 
 

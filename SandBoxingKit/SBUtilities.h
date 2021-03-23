@@ -27,6 +27,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 #define kSandboxingKitErrorDomain @"com.joergjacobsen.sandboxingkit"
 
 #define kSandboxingKitErrorCouldNotComplete 100
@@ -69,15 +71,17 @@ void SBPerformSelectorAsync(
 	id inConnection,
     id inTarget,
 	SEL inSelector, 
-	id inObject,
+	id _Nullable inObject,
     dispatch_queue_t completionHandlerQueue,
 	SBReturnValueHandler inCompletionHandler);
 
 // Here's the same thing as an Objective-C wrapper (for those developers that do not like using pure C functions)...
- 							
+
 @interface NSObject (SBPerformSelectorAsync)
-- (void) performAsyncSelector:(SEL)inSelector withObject:(id)inObject onConnection:(id)inConnection completionHandlerQueue:(dispatch_queue_t)inQueue completionHandler:(SBReturnValueHandler)inCompletionHandler;
+- (void) performAsyncSelector:(SEL)inSelector withObject:(id)inObject onConnection:(id)inConnection completionHandlerQueue:(dispatch_queue_t _Nonnull)inQueue completionHandler:(SBReturnValueHandler)inCompletionHandler;
 @end
 
 
 //----------------------------------------------------------------------------------------------------------------------
+
+NS_ASSUME_NONNULL_END

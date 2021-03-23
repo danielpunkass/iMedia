@@ -339,7 +339,7 @@ static NSMutableDictionary* sLibraryControllers = nil;
 		[_delegate libraryController:self willCreateNodeWithParserMessenger:inParserMessenger];
 	}
 	
-	SBPerformSelectorAsync(inParserMessenger.connection,inParserMessenger,@selector(unpopulatedTopLevelNodes:),nil, dispatch_get_main_queue(),
+	SBPerformSelectorAsync(inParserMessenger.connection,inParserMessenger,@selector(unpopulatedTopLevelNodes:), nil, dispatch_get_main_queue(),
 	
 		^(NSArray* inNodes,NSError* inError)
 		{

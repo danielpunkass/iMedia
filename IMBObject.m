@@ -806,11 +806,14 @@ NSString* kIMBObjectPasteboardType = @"com.karelia.imedia.IMBObject";
  */
 - (void) requestBookmarkWithQueue:(dispatch_queue_t)inQueue completionBlock:(void(^)(NSError*))inCompletionBlock
 {
+	// Caller must provide a queue 
+	assert(inQueue != nil);
+
 	if (self.locationBookmark == nil)
 	{
 		void (^completionBlock)(NSError*) = [inCompletionBlock copy];
 		IMBParserMessenger* messenger = self.parserMessenger;
-		
+
 		SBPerformSelectorAsync(messenger.connection,
                                messenger,
                                @selector(bookmarkForObject:error:),
