@@ -53,7 +53,7 @@
 #pragma mark HEADERS
 
 #import "IMBTextFieldCell.h"
-#import "IMBTableView.h"
+#import <iMedia/IMBTableView.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

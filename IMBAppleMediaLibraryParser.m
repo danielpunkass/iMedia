@@ -12,7 +12,7 @@
 #import "NSString+iMedia.h"
 #import "IMBConfig.h"
 #import "IMBIconCache.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 #import "IMBAppleMediaLibraryParser.h"
 #import "IMBAppleMediaLibraryPropertySynchronizer.h"
 #import "SBUtilities.h"

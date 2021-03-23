@@ -57,7 +57,7 @@
 
 #import "IMBLightroom7VideoParser.h"
 #import "IMBParserController.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSDictionary+iMedia.h"
 #import "NSURL+iMedia.h"
 

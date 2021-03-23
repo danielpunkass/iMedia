@@ -56,7 +56,7 @@
 #pragma mark HEADERS
 
 #import "NSPasteboard+iMedia.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

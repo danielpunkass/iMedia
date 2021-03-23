@@ -50,7 +50,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-#import "IMBItemizableView.h"
+#import <iMedia/IMBItemizableView.h>
 
 #pragma mark CLASSES
 

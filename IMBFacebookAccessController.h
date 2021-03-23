@@ -49,7 +49,7 @@
 
 #import <iMedia/iMedia.h>
 #import <PhFacebook/PhFacebook.h>
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 @interface IMBFacebookAccessController : NSObject <IMBNodeAccessDelegate, PhFacebookDelegate>
 {

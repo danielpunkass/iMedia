@@ -58,8 +58,8 @@
 #import "IMBLightroomModernParser.h"
 #import "FMDatabase.h"
 #import "IMBNode.h"
-#import "IMBFolderObject.h"
-#import "IMBObject.h"
+#import <iMedia/IMBFolderObject.h>
+#import <iMedia/IMBObject.h>
 #import "NSData+SKExtensions.h"
 #import "NSObject+iMedia.h"
 #import "NSFileManager+iMedia.h"

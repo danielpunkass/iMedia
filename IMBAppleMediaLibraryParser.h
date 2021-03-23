@@ -9,7 +9,7 @@
 #import <MediaLibrary/MediaLibrary.h>
 #import <iMedia/iMedia.h>
 
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 
 typedef NSString IMBMLMediaGroupType;
 

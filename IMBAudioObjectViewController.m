@@ -56,16 +56,16 @@
 #pragma mark HEADERS
 
 #import "IMBAudioObjectViewController.h"
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBNodeViewController.h>
 #import "IMBAccessRightsViewController.h"
 #import "IMBObjectArrayController.h"
 #import "IMBPanelController.h"
 #import "IMBCommon.h"
 #import "IMBConfig.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBNode.h"
-#import "IMBNodeObject.h"
-#import "IMBFolderParser.h"
+#import <iMedia/IMBNodeObject.h>
+#import <iMedia/IMBFolderParser.h>
 #import "NSObject+iMedia.h"
 #import "NSWorkspace+iMedia.h"
 #import "NSFileManager+iMedia.h"

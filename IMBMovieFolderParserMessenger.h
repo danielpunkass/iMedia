@@ -52,7 +52,7 @@
 
 #pragma mark HEADERS
 
-#import "IMBFolderParserMessenger.h"
+#import <iMedia/IMBFolderParserMessenger.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

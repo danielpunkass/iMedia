@@ -59,8 +59,8 @@
 #import "IMBAccessRightsController.h"
 #import "IMBParserController.h"
 #import "IMBLibraryController.h"
-#import "IMBNodeViewController.h"
-#import "IMBObjectViewController.h"
+#import <iMedia/IMBNodeViewController.h>
+#import <iMedia/IMBObjectViewController.h>
 #import "IMBHoverButton.h"
 #import "NSWindow_Flipr.h"
 #import "IMBConfig.h"

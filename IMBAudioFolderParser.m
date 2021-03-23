@@ -53,7 +53,7 @@
 #pragma mark HEADERS
 
 #import "IMBAudioFolderParser.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSURL+iMedia.h"
 
 

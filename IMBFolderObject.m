@@ -55,7 +55,7 @@
 
 #pragma mark HEADERS
 
-#import "IMBFolderObject.h"
+#import <iMedia/IMBFolderObject.h>
 #import "NSImage+iMedia.h"
 
 

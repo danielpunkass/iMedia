@@ -58,10 +58,10 @@
 #import "IMBAccessRightsViewController.h"
 #import "IMBAccessRightsController.h"
 #import "IMBLibraryController.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 #import "NSFileManager+iMedia.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBConfig.h"
 #import "SBUtilities.h"
 #import "IMBFileSystemObserver.h"

@@ -6,7 +6,7 @@
 //
 
 #import "IMBObjectCollectionView.h"
-#import "IMBObjectViewController.h"
+#import <iMedia/IMBObjectViewController.h>
 
 
 @implementation IMBObjectCollectionView

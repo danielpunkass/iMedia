@@ -58,7 +58,7 @@
 #import "IMBSafariParser.h"
 #import "IMBNode.h"
 #import "IMBLinkObject.h"
-#import "IMBFolderObject.h"
+#import <iMedia/IMBFolderObject.h>
 #import "NSImage+iMedia.h"
 #import "NSFileManager+iMedia.h"
 #import "NSWorkspace+iMedia.h"

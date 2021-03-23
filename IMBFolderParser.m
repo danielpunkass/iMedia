@@ -55,11 +55,11 @@
 
 #pragma mark HEADERS
 
-#import "IMBFolderParser.h"
+#import <iMedia/IMBFolderParser.h>
 #import "IMBConfig.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
-#import "IMBFolderObject.h"
+#import <iMedia/IMBObject.h>
+#import <iMedia/IMBFolderObject.h>
 #import "NSURL+iMedia.h"
 #import "NSWorkspace+iMedia.h"
 #import "NSString+iMedia.h"

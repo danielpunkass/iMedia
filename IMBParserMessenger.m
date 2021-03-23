@@ -52,11 +52,11 @@
 
 #pragma mark HEADERS
 
-#import "IMBParserMessenger.h"
-#import "IMBParser.h"
+#import <iMedia/IMBParserMessenger.h>
+#import <iMedia/IMBParser.h>
 #import "IMBNode.h"
-#import "IMBObject.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBObject.h>
+#import <iMedia/IMBNodeObject.h>
 #import <XPCKit/XPCKit.h>
 #import "SBUtilities.h"
 #import "NSObject+iMedia.h"

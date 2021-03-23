@@ -56,10 +56,10 @@
 #import "FMDatabase.h"
 #import "FMResultSet.h"
 #import "NSWorkspace+iMedia.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSImage+iMedia.h"
 #import "NSFileManager+iMedia.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 
 @interface IMBFireFoxParser ()
 + (NSString *)firefoxBookmarkPath;

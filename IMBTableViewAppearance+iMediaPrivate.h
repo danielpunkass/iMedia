@@ -50,7 +50,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 #import "IMBViewAppearance+iMediaPrivate.h"
-#import "IMBTableViewAppearance.h"
+#import <iMedia/IMBTableViewAppearance.h>
 
 @interface IMBTableViewAppearance ()
 

@@ -53,7 +53,7 @@
 */
 
 #import <Cocoa/Cocoa.h>
-#import "IMBDynamicTableView.h"
+#import <iMedia/IMBDynamicTableView.h>
 
 @protocol IMBDynamicTableViewDelegate;
 

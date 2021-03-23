@@ -52,7 +52,7 @@
 #import "IMBFlickrParser.h"
 #import "IMBFlickrSession.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSFileManager+iMedia.h"
 #import "NSWorkspace+iMedia.h"
 #import "NSString+iMedia.h"

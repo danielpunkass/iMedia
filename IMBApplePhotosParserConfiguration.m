@@ -7,7 +7,7 @@
 //
 
 #import "IMBApplePhotosParserConfiguration.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 #import "IMBImageProcessor.h"
 #import "NSImage+iMedia.h"
 #import "MLMediaGroup+iMedia.h"

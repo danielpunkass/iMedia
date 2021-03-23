@@ -47,7 +47,7 @@
 // Author: Dan Wood
 
 
-#import "IMBDynamicTableView.h"
+#import <iMedia/IMBDynamicTableView.h>
 #import "IMBCommon.h"
 
 @interface NSTableView(NotPublicSoThisMightBeAProblemForTheMAS)

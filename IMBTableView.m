@@ -55,8 +55,8 @@
 
 #pragma mark HEADERS
 
-#import "IMBTableView.h"
-#import "IMBObjectViewController.h"
+#import <iMedia/IMBTableView.h>
+#import <iMedia/IMBObjectViewController.h>
 #import "IMBButtonObject.h"
 #import "IMBQLPreviewPanel.h"
 #import "IMBTableViewAppearance+iMediaPrivate.h"

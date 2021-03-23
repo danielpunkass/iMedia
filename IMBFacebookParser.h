@@ -8,7 +8,7 @@
 
 #import <iMedia/iMedia.h>
 #import <PhFacebook/PhFacebook.h>
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 
 @interface IMBFacebookParser : IMBParser
 {

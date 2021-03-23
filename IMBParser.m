@@ -55,14 +55,14 @@
 
 #pragma mark HEADERS
 
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 #import "NSWorkspace+iMedia.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSObject+iMedia.h"
 #import "NSURL+iMedia.h"
 #import "NSFileManager+iMedia.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

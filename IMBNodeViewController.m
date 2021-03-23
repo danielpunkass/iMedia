@@ -55,18 +55,18 @@
 
 #pragma mark HEADERS
 
-#import "IMBNodeViewController.h"
-#import "IMBObjectViewController.h"
+#import <iMedia/IMBNodeViewController.h>
+#import <iMedia/IMBObjectViewController.h>
 #import "IMBLibraryController.h"
 #import "IMBAccessRightsViewController.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 #import "IMBOutlineView.h"
 #import "IMBConfig.h"
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 #import "IMBNode.h"
 #import "IMBNodeCell.h"
 #import "IMBFlickrNode.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 #import "NSView+iMedia.h"
 #import "NSImage+iMedia.h"
 #import "NSObject+iMedia.h"

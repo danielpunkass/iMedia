@@ -10,7 +10,7 @@
 #import "IMBFacebookObject.h"
 #import "NSImage+iMedia.h"
 #import "IMBIconCache.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 
 #define DEBUG_SIMULATE_MISSING_THUMBNAILS 0
 #define SHOW_FRIENDS_WITH_ALBUMS_ONLY 1

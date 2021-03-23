@@ -50,7 +50,7 @@
 #pragma mark HEADERS
 
 #import <Cocoa/Cocoa.h>
-#import "IMBFolderObject.h"
+#import <iMedia/IMBFolderObject.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -58,13 +58,13 @@
 #import "IMBNodeCell.h"
 #import "IMBNode.h"
 #import "IMBAlertPopover.h"
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBNodeViewController.h>
 #import "IMBLibraryController.h"
 #import "IMBAccessRightsController.h"
 #import "IMBAccessRightsViewController.h"
 #import "IMBOutlineView.h"
 #import "SBUtilities.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

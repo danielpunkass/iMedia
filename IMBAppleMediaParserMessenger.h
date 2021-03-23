@@ -49,7 +49,7 @@
 
 //----------------------------------------------------------------------------------------------------------------------
 
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 @interface IMBAppleMediaParserMessenger : IMBParserMessenger
 

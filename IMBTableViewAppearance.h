@@ -50,7 +50,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 #import <Foundation/Foundation.h>
-#import "IMBViewAppearance.h"
+#import <iMedia/IMBViewAppearance.h>
 
 @interface IMBTableViewAppearance : IMBViewAppearance
 {

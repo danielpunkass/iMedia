@@ -58,7 +58,7 @@
 #import "IMBApertureHeaderViewController.h"
 #import "IMBParserController.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBIconCache.h"
 #import "NSWorkspace+iMedia.h"
 #import "NSFileManager+iMedia.h"

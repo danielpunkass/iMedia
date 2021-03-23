@@ -48,7 +48,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 
 @interface IMBOmniWebParser : IMBParser 
 {

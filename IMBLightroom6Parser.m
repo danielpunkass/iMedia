@@ -57,12 +57,12 @@
 
 #import "FMDatabase.h"
 #import "FMResultSet+iMedia.h"
-#import "IMBFolderObject.h"
+#import <iMedia/IMBFolderObject.h>
 #import "IMBLightroom6Parser.h"
 #import "IMBLightroomObject.h"
 #import "IMBLightroomRuleScanner.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSData+SKExtensions.h"
 #import "NSFileManager+iMedia.h"
 #import "NSImage+iMedia.h"

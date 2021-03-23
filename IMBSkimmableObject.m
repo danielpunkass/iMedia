@@ -50,10 +50,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-#import "IMBSkimmableObject.h"
+#import <iMedia/IMBSkimmableObject.h>
 #import "NSObject+iMedia.h"
 #import "IMBiPhotoEventNodeObject.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 #import "SBUtilities.h"
 
 

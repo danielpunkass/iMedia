@@ -58,7 +58,7 @@
 #import "IMBLinkObjectViewController.h"
 #import "IMBObjectArrayController.h"
 #import "IMBConfig.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSPasteboard+iMedia.h"
 
 

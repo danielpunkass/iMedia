@@ -52,10 +52,10 @@
 
 #pragma mark HEADERS
 
-#import "IMBFolderParserMessenger.h"
-#import "IMBFolderParser.h"
+#import <iMedia/IMBFolderParserMessenger.h>
+#import <iMedia/IMBFolderParser.h>
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "SBUtilities.h"
 #import <XPCKit/XPCKit.h>
 

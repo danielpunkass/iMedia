@@ -54,7 +54,7 @@
 
 #import "IMBiTunesMovieParser.h"
 #import "IMBParserController.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

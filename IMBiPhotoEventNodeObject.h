@@ -50,7 +50,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
-#import "IMBSkimmableObject.h"
+#import <iMedia/IMBSkimmableObject.h>
 
 
 @interface IMBiPhotoEventNodeObject : IMBSkimmableObject

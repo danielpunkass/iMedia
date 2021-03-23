@@ -53,7 +53,7 @@
 #import "IMBFaceNodeObject.h"
 #import "NSObject+iMedia.h"
 #import "IMBAppleMediaParser.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 @interface IMBFaceNodeObject ()
 

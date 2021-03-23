@@ -47,7 +47,7 @@
 #import <ObjectiveFlickr/ObjectiveFlickr.h>
 
 //  iMedia
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 
 
 

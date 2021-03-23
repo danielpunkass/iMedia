@@ -53,7 +53,7 @@
 #pragma mark HEADERS
 
 #import "IMBOutlineView.h"
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBNodeViewController.h>
 #import "IMBLibraryController.h"
 #import "IMBNode.h"
 #import "NSCell+iMedia.h"

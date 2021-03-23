@@ -53,7 +53,7 @@
 #pragma mark HEADERS
 
 #import "IMBParserController.h"
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 #import "IMBApertureParserMessenger.h"
 #import "NSFileManager+iMedia.h"
 #import "IMBAppleMediaParser.h"

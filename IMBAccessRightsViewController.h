@@ -61,7 +61,7 @@
 
 //----------------------------------------------------------------------------------------------------------------------
 
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 
 #pragma mark CLASSES

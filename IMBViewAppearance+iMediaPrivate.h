@@ -49,7 +49,7 @@
 
 //----------------------------------------------------------------------------------------------------------------------
 
-#import "IMBViewAppearance.h"
+#import <iMedia/IMBViewAppearance.h>
 
 @interface IMBViewAppearance (iMediaPrivate)
 

@@ -53,8 +53,8 @@
 #pragma mark HEADERS
 
 #import "IMBNode.h"
-#import "IMBObject.h"
-#import "IMBParser.h"
+#import <iMedia/IMBObject.h>
+#import <iMedia/IMBParser.h>
 #import "IMBLibraryController.h"
 #import "NSString+iMedia.h"
 

@@ -54,8 +54,8 @@
 
 #import "IMBLightroom2Parser.h"
 #import "IMBNode.h"
-#import "IMBFolderObject.h"
-#import "IMBObject.h"
+#import <iMedia/IMBFolderObject.h>
+#import <iMedia/IMBObject.h>
 #import "NSFileManager+iMedia.h"
 #import "NSImage+iMedia.h"
 #import "NSWorkspace+iMedia.h"

@@ -10,7 +10,7 @@
 #import "NSImage+iMedia.h"
 #import "IMBIconCache.h"
 #import "IMBImageProcessor.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 
 /**
  Reverse-engineered values of the iPhoto app media group type identifiers.

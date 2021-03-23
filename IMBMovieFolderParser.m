@@ -54,7 +54,7 @@
 
 #import "IMBMovieFolderParser.h"
 #import "NSURL+iMedia.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

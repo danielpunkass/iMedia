@@ -73,7 +73,7 @@
 
 #pragma mark HEADERS
 
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBNodeViewController.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

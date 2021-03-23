@@ -56,8 +56,8 @@
 #import "IMBParserController.h"
 #import "IMBAccessRightsController.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBObject.h>
+#import <iMedia/IMBParserMessenger.h>
 #import "IMBAccessRightsViewController.h"
 #import "IMBImageFolderParserMessenger.h"
 #import "IMBAudioFolderParserMessenger.h"

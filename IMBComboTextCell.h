@@ -47,7 +47,7 @@
 // Author: Dan Wood, Peter Baumgartner, Mike Abdullah
 
 
-#import "IMBImageItem.h"
+#import <iMedia/IMBImageItem.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

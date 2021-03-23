@@ -52,11 +52,11 @@
 
 #pragma mark HEADERS
 
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 
 #import "IMBNode.h"
 #import "IMBObjectsPromise.h"
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 #import "IMBCommon.h"
 #import "IMBOperationQueue.h"
 #import "IMBObjectThumbnailLoadOperation.h"

@@ -64,7 +64,7 @@
 #import <iMedia/NSImage+iMedia.h>
 #import "IMBTestFacesBackgroundLayer.h"
 #import "IMBAccessRightsController.h"
-#import "IMBTableViewAppearance.h"
+#import <iMedia/IMBTableViewAppearance.h>
 #import "IMBComboTableViewAppearance.h"
 #import "IMBPanelController.h"
 

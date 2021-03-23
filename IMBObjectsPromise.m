@@ -55,12 +55,12 @@
 #import "IMBObjectsPromise.h"
 #import "IMBCommon.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBButtonObject.h"
 #import "IMBConfig.h"
 #import "IMBOperationQueue.h"
 #import "IMBLibraryController.h"
-#import "IMBParser.h"
+#import <iMedia/IMBParser.h>
 #import "IMBParserController.h"
 #import "IMBURLDownloadOperation.h"
 #import "IMBURLGetSizeOperation.h"

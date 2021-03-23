@@ -53,9 +53,9 @@
 #pragma mark HEADERS
 
 #import "IMBObjectArrayController.h"
-#import "IMBObject.h"
-#import "IMBNodeObject.h"
-#import "IMBParser.h"
+#import <iMedia/IMBObject.h>
+#import <iMedia/IMBNodeObject.h>
+#import <iMedia/IMBParser.h>
 #import "IMBCommon.h"
 
 

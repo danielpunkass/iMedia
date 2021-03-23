@@ -53,8 +53,8 @@
 #pragma mark HEADERS
 
 #import "IMBParserController.h"
-#import "IMBParserMessenger.h"
-#import "IMBParser.h"
+#import <iMedia/IMBParserMessenger.h>
+#import <iMedia/IMBParser.h>
 #import "IMBConfig.h"
 #import "IMBCommon.h"
 

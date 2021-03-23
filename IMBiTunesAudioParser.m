@@ -57,7 +57,7 @@
 #import "IMBConfig.h"
 #import "IMBParserController.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBIconCache.h"
 #import "NSDictionary+iMedia.h"
 #import "NSString+iMedia.h"

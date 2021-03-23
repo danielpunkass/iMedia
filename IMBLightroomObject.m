@@ -56,7 +56,7 @@
 #pragma mark HEADERS
 
 #import "IMBLightroomObject.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

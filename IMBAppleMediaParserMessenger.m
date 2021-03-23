@@ -56,7 +56,7 @@
 #import "NSImage+iMedia.h"
 #import "NSString+iMedia.h"
 #import "IMBConfig.h"
-#import "IMBAppleMediaParserMessenger.h"
+#import <iMedia/IMBAppleMediaParserMessenger.h>
 #import "IMBAppleMediaParser.h"
 #import "IMBNode.h"
 #import "IMBImageObjectViewController.h"

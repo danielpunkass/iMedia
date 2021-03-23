@@ -55,8 +55,8 @@
 
 #pragma mark HEADERS
 
-#import "IMBParser.h"
-#import "IMBObject.h"
+#import <iMedia/IMBParser.h>
+#import <iMedia/IMBObject.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

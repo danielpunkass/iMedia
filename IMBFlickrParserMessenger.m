@@ -50,10 +50,10 @@
 #import "IMBConfig.h"
 #import "IMBFlickrParserMessenger.h"
 #import "IMBFlickrParser.h"
-#import "IMBFolderParser.h"
+#import <iMedia/IMBFolderParser.h>
 #import "IMBLoadMoreObject.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBParserController.h"
 #import "SBUtilities.h"
 

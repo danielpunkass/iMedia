@@ -55,15 +55,15 @@
 
 #pragma mark HEADERS
 
-#import "IMBObjectViewController.h"
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBObjectViewController.h>
+#import <iMedia/IMBNodeViewController.h>
 #import "IMBLibraryController.h"
 #import "IMBAccessRightsViewController.h"
 #import "IMBConfig.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 #import "IMBNode.h"
-#import "IMBObject.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBObject.h>
+#import <iMedia/IMBNodeObject.h>
 #import "IMBProgressWindowController.h"
 #import "NSWorkspace+iMedia.h"
 #import "NSFileManager+iMedia.h"
@@ -71,7 +71,7 @@
 #import "NSView+iMedia.h"
 #import "NSImage+iMedia.h"
 #import "NSObject+iMedia.h"
-#import "IMBDynamicTableView.h"
+#import <iMedia/IMBDynamicTableView.h>
 #import "IMBOperationQueue.h"
 #import "IMBObjectThumbnailLoadOperation.h"
 #import "IMBButtonObject.h"

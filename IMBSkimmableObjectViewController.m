@@ -52,9 +52,9 @@
 #import "IMBLibraryController.h"
 #import "IMBObjectArrayController.h"
 #import "IMBPanelController.h"
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBNodeViewController.h>
 #import	"IMBSkimmableObjectViewController.h"
-#import "IMBSkimmableObject.h"
+#import <iMedia/IMBSkimmableObject.h>
 #import "IMBNode.h"
 #import "IMBConfig.h"
 

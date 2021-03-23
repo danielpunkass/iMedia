@@ -82,9 +82,9 @@
 
 #pragma mark HEADERS
 
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBNode.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 #import "IMBAppleMediaLibraryParserMessenger.h"
 #import "IMBCommon.h"
 #import "IMBOperationQueue.h"

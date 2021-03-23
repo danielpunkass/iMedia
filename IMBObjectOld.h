@@ -53,7 +53,7 @@
 #pragma mark HEADERS
 
 #import <Quartz/Quartz.h>
-#import "IMBImageItem.h"
+#import <iMedia/IMBImageItem.h>
 
 
 //----------------------------------------------------------------------------------------------------------------------

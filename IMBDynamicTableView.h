@@ -48,7 +48,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#import "IMBTableView.h"
+#import <iMedia/IMBTableView.h>
 
 
 @interface IMBDynamicTableView : IMBTableView

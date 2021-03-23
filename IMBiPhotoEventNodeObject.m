@@ -51,7 +51,7 @@
 
 #import "IMBiPhotoEventNodeObject.h"
 #import "IMBiPhotoParser.h"
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 @interface IMBiPhotoEventNodeObject ()
 

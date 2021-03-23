@@ -53,7 +53,7 @@
 #pragma mark HEADERS
 
 #import "IMBApertureVideoParser.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSDictionary+iMedia.h"
 #import "NSURL+iMedia.h"
 

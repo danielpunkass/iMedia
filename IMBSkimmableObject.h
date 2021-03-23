@@ -50,7 +50,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 
 @interface IMBSkimmableObject : IMBNodeObject
 {

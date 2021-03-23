@@ -59,7 +59,7 @@
 #import "IMBObjectArrayController.h"
 #import "IMBCommon.h"
 #import "IMBConfig.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSWorkspace+iMedia.h"
 
 

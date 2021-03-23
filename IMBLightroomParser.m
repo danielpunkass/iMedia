@@ -61,8 +61,8 @@
 #import "IMBConfig.h"
 #import "IMBIconCache.h"
 #import "IMBNode.h"
-#import "IMBFolderObject.h"
-#import "IMBObject.h"
+#import <iMedia/IMBFolderObject.h>
+#import <iMedia/IMBObject.h>
 #import "IMBOrderedDictionary.h"
 #import "IMBParserController.h"
 #import "NSData+SKExtensions.h"

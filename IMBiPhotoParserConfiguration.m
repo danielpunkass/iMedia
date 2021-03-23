@@ -10,7 +10,7 @@
 #import "IMBAppleMediaLibraryParserMessenger.h"
 #import "NSImage+iMedia.h"
 #import "IMBIconCache.h"
-#import "IMBNodeObject.h"
+#import <iMedia/IMBNodeObject.h>
 #import "IMBImageProcessor.h"
 #import "MLMediaGroup+iMedia.h"
 

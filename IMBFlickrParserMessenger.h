@@ -44,7 +44,7 @@
 */
 
 //  Media Browser
-#import "IMBParserMessenger.h"
+#import <iMedia/IMBParserMessenger.h>
 
 
 

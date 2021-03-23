@@ -56,7 +56,7 @@
 #pragma mark HEADERS
 
 #import "IMBObjectFifoCache.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "IMBCommon.h"
 
 

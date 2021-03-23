@@ -52,7 +52,7 @@
 #import "IMBLibraryController.h"
 #import "IMBLoadMoreObject.h"
 #import "NSString+iMedia.h"
-#import "IMBNodeViewController.h"
+#import <iMedia/IMBNodeViewController.h>
 #import "IMBFlickrHeaderViewController.h"
 
 

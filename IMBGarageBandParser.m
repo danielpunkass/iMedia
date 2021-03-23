@@ -57,7 +57,7 @@
 
 #import "IMBGarageBandParser.h"
 #import "IMBNode.h"
-#import "IMBObject.h"
+#import <iMedia/IMBObject.h>
 #import "NSWorkspace+iMedia.h"
 #import "NSFileManager+iMedia.h"
 #import "SBUtilities.h"
