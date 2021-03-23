@@ -4907,7 +4907,6 @@
 					"\"$(SRCROOT)/SandBoxingKit\"",
 				);
 				MACH_O_TYPE = mh_execute;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${EXECUTABLE_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xpc;
@@ -4937,7 +4936,6 @@
 					"\"$(SRCROOT)/SandBoxingKit\"",
 				);
 				MACH_O_TYPE = mh_execute;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${EXECUTABLE_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xpc;
