@@ -32,7 +32,7 @@
 	{
 		[controller quicklook:self];
 	}
-	else if (([key isEqualToString:@"\n"] == NO) && ([key isEqualToString:@"\r"] == NO) && ([[inEvent characters] length] > 0) && (([inEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == 0)) {
+	else if (([key isEqualToString:@"\t"] == NO) && ([key isEqualToString:@"\n"] == NO) && ([key isEqualToString:@"\r"] == NO) && ([[inEvent characters] length] > 0) && (([inEvent modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == 0)) {
 		return [self typeSelectKeyDown:inEvent];
 	}
 	else
