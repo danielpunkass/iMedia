@@ -49,4 +49,17 @@
 	}
 }
 
+// The combination of overriding hitTest to always return ourself, and
+// and overriding acceptsFirstMouse:, allow us to support clicking and dragging
+// an icon even when the media manager window is not active.
+- (NSView *)hitTest:(NSPoint)point
+{
+	return self;
+}
+
+- (BOOL)acceptsFirstMouse:(NSEvent *)event
+{
+	return YES;
+}
+
 @end
