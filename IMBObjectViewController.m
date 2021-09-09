@@ -1109,6 +1109,8 @@ static NSMutableDictionary* sRegisteredObjectViewControllerClasses = nil;
 		}
 
 		thisItem.badgeImageView.image = badge;
+
+		thisItem.selected = [self.objectArrayController.selectedObjects containsObject:representedObject];
 	}
 	return thisItem;
 }
