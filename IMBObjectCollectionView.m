@@ -180,7 +180,7 @@
 {
 	if ((inEvent.type == NSEventTypeRightMouseDown) || (inEvent.modifierFlags & NSEventModifierFlagControl))
 	{
-		[super rightMouseDown:inEvent];
+		[self rightMouseDown:inEvent];
 	}
 	else
 	{
