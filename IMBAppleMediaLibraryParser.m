@@ -300,6 +300,15 @@ NSString *kIMBMLMediaGroupTypeFacesFolder = @"FacesFolder";
         dispatch_release(semaphore);
 #endif
 #endif
+
+		// After loading the objects, update their indices to match their
+		// position within the node
+		NSInteger nodeIndex = 0;
+		for (IMBObject* object in objects) {
+			object.index = nodeIndex;
+			nodeIndex += 1;
+		}
+		
         STOP_MEASURE(2);
         LOG_MEASURED_TIME(2, @"create IMBObjects for group %@", parentGroup.name);
     }
