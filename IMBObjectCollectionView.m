@@ -89,7 +89,6 @@
 	else if (selector == @selector(scrollToEndOfDocument:))
 	{
 		[self scrollToEndOfDocument:self];
-
 	}
 	else if (selector == @selector(scrollToBeginningOfDocument:))
 	{
@@ -143,11 +142,16 @@
 	[[scrollview documentView] scrollPoint:newScrollOrigin];
 }
 
+- (nullable NSIndexPath*) indexPathForMouseEvent:(NSEvent*)mouseEvent
+{
+	NSPoint viewPoint = [self convertPoint:[mouseEvent locationInWindow] fromView:nil];
+	return [self indexPathForItemAtPoint:viewPoint];
+}
+
 - (IMBObject*) itemForMouseEvent:(NSEvent*)mouseEvent
 {
 	IMBObject* itemUnderMouse = nil;
-	NSPoint viewPoint = [self convertPoint:[mouseEvent locationInWindow] fromView:nil];
-	NSIndexPath* selectedItemIndexPath = [self indexPathForItemAtPoint:viewPoint];
+	NSIndexPath* selectedItemIndexPath = [self indexPathForMouseEvent:mouseEvent];
 	if (selectedItemIndexPath != nil)
 	{
 		itemUnderMouse = (IMBObject*)[[self itemAtIndex:[selectedItemIndexPath indexAtPosition:1]] representedObject];
@@ -180,7 +184,18 @@
 {
 	if ((inEvent.type == NSEventTypeRightMouseDown) || (inEvent.modifierFlags & NSEventModifierFlagControl))
 	{
-		[self rightMouseDown:inEvent];
+		NSIndexPath* clickedIndexPath = [self indexPathForMouseEvent:inEvent];
+		if (clickedIndexPath != nil) {
+			// We have to be first responder or else our focused item won't for example
+			// be considered for Quick Look
+			[self.window makeFirstResponder:self];
+
+			// Bugz 39681: Ensure as we are right-clicking an item that it also becomes selected
+			self.selectionIndexPaths = [NSSet setWithObject:clickedIndexPath];
+			[self.delegate collectionView:self didSelectItemsAtIndexPaths:self.selectionIndexPaths];
+
+			[self rightMouseDown:inEvent];
+		}
 	}
 	else
 	{
