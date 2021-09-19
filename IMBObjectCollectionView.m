@@ -178,24 +178,29 @@
 	[self sendDelegateItemOpenedMessage:clickedItem];
 }
 
+- (void)rightMouseDown:(NSEvent *)event
+{
+	NSIndexPath* clickedIndexPath = [self indexPathForMouseEvent:event];
+	if (clickedIndexPath != nil) {
+		// We have to be first responder or else our focused item won't for example
+		 // be considered for Quick Look
+		 [self.window makeFirstResponder:self];
+
+		 // Bugz 39681: Ensure as we are right-clicking an item that it also becomes selected
+		 self.selectionIndexPaths = [NSSet setWithObject:clickedIndexPath];
+		 [self.delegate collectionView:self didSelectItemsAtIndexPaths:self.selectionIndexPaths];
+	}
+
+	[super rightMouseDown:event];
+}
+
 // Thanks to Charles Parnot for sharing that rightMouseDown doesn't seem to get generated
 // as expected for control clicks.
 - (void) mouseDown:(NSEvent *)inEvent
 {
 	if ((inEvent.type == NSEventTypeRightMouseDown) || (inEvent.modifierFlags & NSEventModifierFlagControl))
 	{
-		NSIndexPath* clickedIndexPath = [self indexPathForMouseEvent:inEvent];
-		if (clickedIndexPath != nil) {
-			// We have to be first responder or else our focused item won't for example
-			// be considered for Quick Look
-			[self.window makeFirstResponder:self];
-
-			// Bugz 39681: Ensure as we are right-clicking an item that it also becomes selected
-			self.selectionIndexPaths = [NSSet setWithObject:clickedIndexPath];
-			[self.delegate collectionView:self didSelectItemsAtIndexPaths:self.selectionIndexPaths];
-
-			[self rightMouseDown:inEvent];
-		}
+		[self rightMouseDown:inEvent];
 	}
 	else
 	{
