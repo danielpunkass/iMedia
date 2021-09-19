@@ -25,6 +25,26 @@
 
 #if MAC_OS_X_VERSION_MAX_ALLOWED > MAC_OS_X_VERSION_10_4
 
+static BOOL ShouldIgnoreFSEventWithFlags(FSEventStreamEventFlags flags)
+{
+	BOOL ignore = NO;
+
+	// PB 14.05.2015: Filter out creation of hardlinks
+	const FSEventStreamEventFlags kFolderMetadataMod = kFSEventStreamEventFlagItemInodeMetaMod|kFSEventStreamEventFlagItemIsDir;
+	if ((flags & kFolderMetadataMod) == kFolderMetadataMod) {
+		ignore = YES;
+	}
+	// DCJ - avoid reloading when 'clone' messages come in - not sure why they come
+	// yet but they don't demand complete reload.
+	if (@available(macOS 10.13, *)) {
+		if ((flags & kFSEventStreamEventFlagItemCloned) == kFSEventStreamEventFlagItemCloned)
+		{
+			ignore = YES;
+		}
+	}
+	return ignore;
+}
+
 static void FSEventCallback(ConstFSEventStreamRef inStreamRef, 
 							void* inClientCallBackInfo, 
 							size_t inNumEvents, 
@@ -33,8 +53,7 @@ static void FSEventCallback(ConstFSEventStreamRef inStreamRef,
 							const FSEventStreamEventId inEventIds[])
 {
 	UKFSEventsWatcher* watcher = (UKFSEventsWatcher*)inClientCallBackInfo;
-	const FSEventStreamEventFlags kFolderMetadataMod = kFSEventStreamEventFlagItemInodeMetaMod|kFSEventStreamEventFlagItemIsDir;
-	
+
 	if (watcher != nil && [watcher delegate] != nil)
 	{
 		id delegate = [watcher delegate];
@@ -48,8 +67,8 @@ static void FSEventCallback(ConstFSEventStreamRef inStreamRef,
 			{
 				FSEventStreamEventFlags flags = inEventFlags[i];
 				i++;
-				
-				if (flags != kFolderMetadataMod) // PB 14.05.2015: Filter out creation of hardlinks
+
+				if (ShouldIgnoreFSEventWithFlags(flags) == NO)
 				{
 					[delegate watcher:watcher receivedNotification:UKFileWatcherWriteNotification forPath:path];
 					
