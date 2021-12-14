@@ -40,8 +40,15 @@
 
 	if (drawsHighlighted)
 	{
-		NSColor* selectionColor = [[NSColor lightGrayColor] colorWithAlphaComponent:0.5];
-		[selectionColor set];
+		NSColor* highlightColor;
+
+		if (@available(macOS 10.14, *)) {
+			 highlightColor = [NSColor selectedContentBackgroundColor];
+		} else {
+			highlightColor = [NSColor colorForControlTint:NSColor.currentControlTint];
+		}
+
+		[highlightColor set];
 
 		NSRect selectionRect = [self bounds];
 		NSBezierPath* selectionPath = [NSBezierPath bezierPathWithRoundedRect:selectionRect xRadius:8.0 yRadius:8.0];
