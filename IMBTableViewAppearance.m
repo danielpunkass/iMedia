@@ -192,8 +192,8 @@
     
     NSRange         aVisibleRowIndexes = [myTableView rowsInRect:theClipRect];
     NSIndexSet *    aSelectedRowIndexes = [myTableView selectedRowIndexes];
-    int             aRow = aVisibleRowIndexes.location;
-    int             anEndRow = aRow + aVisibleRowIndexes.length;
+	NSUInteger      aRow = aVisibleRowIndexes.location;
+	NSUInteger      anEndRow = aRow + aVisibleRowIndexes.length;
     NSGradient *    gradient;
     NSColor *       pathColor;
     

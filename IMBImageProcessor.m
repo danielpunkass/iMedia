@@ -144,7 +144,7 @@
     
     for (NSInteger row = 0; row < rowCount; row++) {
         for (NSInteger col = 0; col < 3; col++) {
-            int imageIndex = row * rowCount + col;
+			NSInteger imageIndex = row * rowCount + col;
             
             if (imageIndex >= [images count])  break;
             

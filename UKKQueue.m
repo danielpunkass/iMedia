@@ -45,7 +45,7 @@
 @interface UKKQueuePathEntry : NSObject
 {
 	NSString*		path;
-	NSInteger				watchedFD;
+	int				watchedFD;
 	u_int			subscriptionFlags;
 	NSInteger				pathRefCount;
 }
@@ -56,7 +56,7 @@
 -(BOOL)			releasePath;
 
 -(NSString*)	path;
--(NSInteger)			watchedFD;
+-(int)			watchedFD;
 
 -(u_int)		subscriptionFlags;
 -(void)			setSubscriptionFlags: (u_int)fflags;
@@ -120,7 +120,7 @@
 	return path;
 }
 
--(NSInteger)	watchedFD
+-(int)	watchedFD
 {
 	return watchedFD;
 }
@@ -143,7 +143,7 @@
 
 @interface UKKQueueCentral : NSObject
 {
-	NSInteger						queueFD;				// The actual queue ID (Unix file descriptor).
+	int						queueFD;				// The actual queue ID (Unix file descriptor).
 	NSMutableDictionary*	watchedFiles;			// List of UKKQueuePathEntries.
 	BOOL					keepThreadRunning;
 }
@@ -304,7 +304,7 @@ static id					gUKKQueueSharedNotificationCenterProxy = nil;	// Object to which w
 			
 			[pe setSubscriptionFlags: fflags];
             [watchedFiles setObject: pe forKey: path];
-            kevent( queueFD, &ev, 1, NULL, 0, &nullts );
+            kevent( (int)queueFD, &ev, 1, NULL, 0, &nullts );
 		
 			// Start new thread that fetches and processes our events:
 			if( !keepThreadRunning )
@@ -396,7 +396,7 @@ static id					gUKKQueueSharedNotificationCenterProxy = nil;	// Object to which w
 	NSInteger					n;
     struct kevent		ev;
     struct timespec     timeout = { 1, 0 }; // 1 second timeout. Should be longer, but we need this thread to exit when a kqueue is dealloced, so 1 second timeout is quite a while to wait.
-	NSInteger					theFD = queueFD;	// So we don't have to risk accessing iVars when the thread is terminated.
+	int					theFD = queueFD;	// So we don't have to risk accessing iVars when the thread is terminated.
     
 	#if DEBUG_LOG_THREAD_LIFETIME
 	NSLog(@"watcherThread started.");
