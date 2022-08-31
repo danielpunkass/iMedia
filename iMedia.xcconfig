@@ -1,7 +1,7 @@
 // Use latest SDK and set minimum deployment platform
 
 SDKROOT = macosx
-MACOSX_DEPLOYMENT_TARGET = 10.12
+MACOSX_DEPLOYMENT_TARGET = 10.15.4
 
 ONLY_ACTIVE_ARCH_Debug = YES
 ONLY_ACTIVE_ARCH_Release = NO
