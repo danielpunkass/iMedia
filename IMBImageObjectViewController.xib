@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21223" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment version="101200" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21223"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,6 +29,7 @@
                 <string>shouldDisableTitle</string>
                 <string>imageTitle</string>
             </declaredKeys>
+            <classReference key="objectClass" className="IMBObject"/>
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="currentNode.bindableObjects" id="697">
                     <dictionary key="options">
@@ -48,18 +49,18 @@
                     <font key="font" metaFont="system"/>
                     <tabViewItems>
                         <tabViewItem label="Tab" identifier="1" id="568">
-                            <view key="view" ambiguous="YES" id="569">
+                            <view key="view" id="569">
                                 <rect key="frame" x="0.0" y="0.0" width="408" height="474"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coc-un-dxK">
                                         <rect key="frame" x="-1" y="0.0" width="409" height="474"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <clipView key="contentView" ambiguous="YES" id="u4Z-Ne-Nhb">
+                                        <clipView key="contentView" id="u4Z-Ne-Nhb">
                                             <rect key="frame" x="1" y="1" width="407" height="472"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <collectionView ambiguous="YES" selectable="YES" allowsMultipleSelection="YES" id="jmv-70-nRA" customClass="IMBObjectCollectionView">
+                                                <collectionView selectable="YES" allowsMultipleSelection="YES" id="jmv-70-nRA" customClass="IMBObjectCollectionView">
                                                     <rect key="frame" x="0.0" y="0.0" width="407" height="472"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewLayout key="collectionViewLayout" id="Flb-eI-yye" customClass="IMBObjectCollectionViewFlowLayout"/>
@@ -94,11 +95,11 @@
                                         <rect key="frame" x="-1" y="0.0" width="409" height="474"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" ambiguous="YES" id="slP-Zm-Coe">
-                                            <rect key="frame" x="1" y="0.0" width="407" height="473"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <rect key="frame" x="1" y="1" width="392" height="472"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" headerView="678" id="578" customClass="IMBDynamicTableView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="407" height="450"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="392" height="449"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -106,7 +107,6 @@
                                                     <tableColumns>
                                                         <tableColumn identifier="icon" editable="NO" width="20" minWidth="20" maxWidth="20" id="638">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -115,9 +115,8 @@
                                                                 <binding destination="465" name="value" keyPath="arrangedObjects.icon" id="641"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="name" editable="NO" width="267" minWidth="16" maxWidth="2000" id="579">
+                                                        <tableColumn identifier="name" editable="NO" width="238" minWidth="16" maxWidth="2000" id="579">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
-                                                                <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
@@ -141,9 +140,8 @@
                                                                 </binding>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="size" editable="NO" width="111" minWidth="96" maxWidth="120" id="672">
+                                                        <tableColumn identifier="size" editable="NO" width="116" minWidth="96" maxWidth="120" id="672">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Size">
-                                                                <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -189,11 +187,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="576">
-                                            <rect key="frame" x="392" y="23" width="16" height="450"/>
+                                            <rect key="frame" x="393" y="24" width="15" height="449"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <tableHeaderView key="headerView" id="678">
-                                            <rect key="frame" x="0.0" y="0.0" width="407" height="23"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="392" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
                                     </scrollView>
@@ -209,19 +207,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="408" height="474"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" ambiguous="YES" id="HY4-lD-3pT">
-                                            <rect key="frame" x="1" y="1" width="406" height="472"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <rect key="frame" x="1" y="1" width="391" height="472"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" rowHeight="80" id="598" customClass="IMBComboTableView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="406" height="472"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="391" height="472"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="403" minWidth="40" maxWidth="1000" id="599">
+                                                        <tableColumn width="379" minWidth="40" maxWidth="1000" id="599">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
@@ -260,7 +257,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="596">
-                                            <rect key="frame" x="391" y="1" width="16" height="472"/>
+                                            <rect key="frame" x="392" y="1" width="15" height="472"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -339,7 +336,7 @@
     </objects>
     <resources>
         <image name="IMBComboViewTemplate" width="16" height="16"/>
-        <image name="NSIconViewTemplate" width="14" height="10"/>
-        <image name="NSListViewTemplate" width="14" height="10"/>
+        <image name="NSIconViewTemplate" width="19" height="17"/>
+        <image name="NSListViewTemplate" width="21" height="14"/>
     </resources>
 </document>

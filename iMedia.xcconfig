@@ -49,3 +49,7 @@ ALWAYS_SEARCH_USER_PATHS = NO
 // This warning ensures we don't deviate from the framework-based
 // import style when it is appropriate to use it.
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES
+
+// Disable deprecated warnings for iMedia
+GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO
+
