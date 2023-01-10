@@ -3073,9 +3073,11 @@
 					};
 					30B83ACE1701AFDB000EC74E = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					30FFEBEB150A08DB0009C1D0 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					8DC2EF4F0486A6940098B216 = {
 						DevelopmentTeam = 493CVA9A35;
@@ -3087,27 +3089,35 @@
 					};
 					D054AFEE152984FA00EBFA1C = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D399D152ACD1300E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D39AE152ACD2400E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D39BF152ACD3300E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D39D0152ACD5E00E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D39E1152ACD6800E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D39F2152ACD8800E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D05D3A05152AD0D000E30C43 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D09933541011B26E00C527B7 = {
 						DevelopmentTeam = 493CVA9A35;
@@ -3119,9 +3129,11 @@
 					};
 					D0E96CEE1518C9BF004F3EE7 = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 					D0F2DDBC152485130059DF8D = {
 						DevelopmentTeam = 493CVA9A35;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
