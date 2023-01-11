@@ -4231,6 +4231,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -4292,6 +4293,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -4377,6 +4379,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -4442,6 +4445,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -4507,6 +4511,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -4572,6 +4577,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -4637,6 +4643,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -4702,6 +4709,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -4767,6 +4775,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -4832,6 +4841,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -4935,6 +4945,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -5000,6 +5011,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME).entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
