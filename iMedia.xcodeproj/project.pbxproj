@@ -3065,11 +3065,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-<<<<<<< HEAD
-				LastUpgradeCheck = 1410;
-=======
 				LastUpgradeCheck = 1430;
->>>>>>> SierraTargets
 				TargetAttributes = {
 					307F9690183D090D004F87E0 = {
 						DevelopmentTeam = 493CVA9A35;
